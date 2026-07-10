@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Réveillon 2027 — Onde vamos passar a virada?</title>
+<style>
+  :root{
+    --ocean:#0e7490; --ocean-dark:#155e75; --sand:#fef3c7; --coral:#f97362;
+    --ink:#0f172a; --muted:#64748b; --line:#e2e8f0; --bg:#f8fafc;
+    --green:#16a34a; --red:#dc2626; --card:#ffffff;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Segoe UI',system-ui,-apple-system,Roboto,Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.55}
+  a{color:var(--ocean)}
+  .wrap{max-width:1200px;margin:0 auto;padding:0 18px}
+
+  header.hero{background:linear-gradient(135deg,#0e7490 0%,#0891b2 45%,#06b6d4 100%);color:#fff;padding:44px 0 58px;position:relative;overflow:hidden}
+  header.hero::after{content:"🎆";position:absolute;right:24px;top:18px;font-size:70px;opacity:.25}
+  .hero h1{font-size:2.15rem;line-height:1.15;margin-bottom:10px;font-weight:800;letter-spacing:-.5px}
+  .hero p.sub{font-size:1.05rem;opacity:.96;max-width:740px}
+  .facts{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+  .facts .chip{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.28);padding:7px 13px;border-radius:999px;font-size:.9rem;font-weight:600}
+
+  .best{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:-34px auto 0;position:relative;z-index:3}
+  .best .b{background:var(--card);border-radius:14px;padding:14px 12px;box-shadow:0 8px 24px rgba(2,6,23,.09);text-align:center;border:1px solid var(--line)}
+  .best .b .ico{font-size:1.5rem}
+  .best .b .lab{font-size:.7rem;text-transform:uppercase;letter-spacing:.5px;color:var(--muted);font-weight:700;margin:4px 0 2px}
+  .best .b .val{font-size:.9rem;font-weight:700;color:var(--ocean-dark);line-height:1.2}
+
+  h2.section{font-size:1.5rem;margin:44px 0 6px;font-weight:800;letter-spacing:-.3px}
+  p.section-sub{color:var(--muted);margin-bottom:16px}
+
+  .toggle{display:inline-flex;background:#e2e8f0;border-radius:10px;padding:4px;margin:6px 0 14px;gap:4px}
+  .toggle button{border:0;background:transparent;padding:8px 16px;border-radius:8px;font-weight:700;cursor:pointer;color:var(--muted);font-size:.9rem}
+  .toggle button.active{background:#fff;color:var(--ocean-dark);box-shadow:0 1px 3px rgba(0,0,0,.12)}
+  body:not(.pp) .price-pp{display:none}
+  body.pp .price-total{display:none}
+
+  .table-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:14px;box-shadow:0 4px 16px rgba(2,6,23,.05);background:#fff}
+  table{border-collapse:collapse;width:100%;min-width:900px;font-size:.9rem}
+  th,td{padding:11px 13px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+  thead th{background:var(--ocean-dark);color:#fff;font-weight:700;position:sticky;top:0;white-space:nowrap}
+  tbody th{font-weight:700;background:#f1f5f9;white-space:nowrap}
+  tbody tr:hover td,tbody tr:hover th{background:#ecfeff}
+  td.hl{font-weight:800;color:var(--ocean-dark);white-space:nowrap}
+  .rgrp td{background:#0e7490;color:#fff;font-weight:700;font-size:.82rem;text-transform:uppercase;letter-spacing:.6px}
+  .pill{display:inline-block;padding:2px 8px;border-radius:999px;font-size:.75rem;font-weight:700}
+  .pill.cheap{background:#dcfce7;color:#166534}
+  .pill.exp{background:#fee2e2;color:#991b1b}
+  .pill.near{background:#e0f2fe;color:#075985}
+  .stars{color:#f59e0b;font-weight:700;white-space:nowrap}
+  .yes{color:#166534;font-weight:700}
+  .kid-ok{color:#166534;font-weight:700}
+  .kid-warn{color:#b45309;font-weight:700}
+  .kid-no{color:#991b1b;font-weight:700}
+
+  .group{margin:42px 0 4px;font-size:1.2rem;font-weight:800;color:var(--ocean-dark);display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;padding-bottom:8px;border-bottom:2px solid var(--line)}
+  .group .cnt{font-size:.78rem;color:var(--muted);font-weight:600}
+  .group-sub{color:var(--muted);font-size:.92rem;margin:8px 0 14px}
+
+  .cards{display:grid;grid-template-columns:1fr;gap:24px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 10px 28px rgba(2,6,23,.07)}
+  .card-grid{display:grid;grid-template-columns:minmax(0,400px) 1fr}
+
+  .gallery{background:#0f172a;display:flex;flex-direction:column}
+  .gallery .main{width:100%;aspect-ratio:4/3;object-fit:cover;display:block}
+  .thumbs{display:flex;gap:6px;padding:8px;background:#0f172a}
+  .thumbs img{width:100%;height:50px;object-fit:cover;border-radius:7px;cursor:pointer;opacity:.6;border:2px solid transparent;transition:.15s}
+  .thumbs img:hover{opacity:1;border-color:#06b6d4}
+
+  .card-body{padding:20px 22px}
+  .rank{display:inline-block;background:var(--coral);color:#fff;font-weight:800;font-size:.72rem;padding:3px 10px;border-radius:999px;letter-spacing:.5px}
+  .rank.alt{background:#0d9488}
+  .card h3{font-size:1.3rem;margin:10px 0 3px;font-weight:800;letter-spacing:-.3px}
+  .loc{color:var(--muted);font-weight:600;font-size:.94rem;margin-bottom:12px}
+  .scene{display:inline-block;margin-left:4px;padding:1px 8px;border-radius:6px;background:var(--sand);color:#92400e;font-size:.76rem;font-weight:700}
+  .scene.sinuca{background:#dcfce7;color:#166534}
+
+  .priceline{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin:6px 0 12px;padding:11px 14px;background:#f0fdfa;border:1px solid #ccfbf1;border-radius:12px}
+  .priceline .big{font-size:1.6rem;font-weight:800;color:var(--ocean-dark)}
+  .priceline .per{font-size:.88rem;color:var(--muted);font-weight:600}
+
+  .kidbar{font-size:.85rem;font-weight:700;padding:8px 12px;border-radius:10px;margin-bottom:14px}
+  .kidbar.ok{background:#f0fdf4;color:#166534;border:1px solid #bbf7d0}
+  .kidbar.warn{background:#fffbeb;color:#92400e;border:1px solid #fde68a}
+  .kidbar.neutral{background:#f1f5f9;color:#334155;border:1px solid #e2e8f0}
+
+  .kv{display:grid;grid-template-columns:1fr 1fr;gap:7px 18px;margin:6px 0 14px}
+  .kv div{font-size:.89rem;display:flex;gap:7px;align-items:flex-start}
+  .kv .k{color:var(--muted);font-weight:600;min-width:72px}
+  .kv .v{font-weight:600}
+
+  .h4{font-size:.8rem;text-transform:uppercase;letter-spacing:.6px;color:var(--ocean);font-weight:800;margin:14px 0 5px}
+  .doing{font-size:.92rem;margin-bottom:4px}
+  .pc{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px}
+  @media(max-width:520px){ .pc{grid-template-columns:1fr} }
+  .pc ul{list-style:none;font-size:.89rem}
+  .pc li{padding-left:22px;position:relative;margin-bottom:6px;line-height:1.4}
+  .pros li::before{content:"✓";position:absolute;left:0;color:var(--green);font-weight:800}
+  .cons li::before{content:"✕";position:absolute;left:0;color:var(--red);font-weight:800}
+  .pc h5{font-size:.9rem;margin-bottom:7px}
+
+  .btn{display:inline-block;margin-top:16px;background:var(--coral);color:#fff;text-decoration:none;font-weight:700;padding:11px 20px;border-radius:11px;font-size:.93rem;transition:.15s}
+  .btn:hover{background:#ea5b49}
+
+  .guide{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;margin-top:8px}
+  .guide .g{background:#fff;border:1px solid var(--line);border-left:5px solid var(--ocean);border-radius:12px;padding:15px 16px}
+  .guide .g .q{font-weight:800;font-size:.97rem;margin-bottom:6px}
+  .guide .g .a{font-size:.9rem;color:#334155}
+  .guide .g .a b{color:var(--ocean-dark)}
+
+  footer{margin:48px 0 30px;color:var(--muted);font-size:.84rem}
+  .note{background:#fffbeb;border:1px solid #fde68a;border-radius:12px;padding:14px 16px;font-size:.88rem;color:#78350f;margin-top:24px}
+
+  @media(max-width:780px){
+    .card-grid{grid-template-columns:1fr}
+    .hero h1{font-size:1.7rem}
+    .kv{grid-template-columns:1fr}
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <h1>Réveillon 2027 — Onde vamos passar a virada?</h1>
+    <p class="sub">Comparativo das 7 casas que estão no páreo, pra decidirmos juntos. Todas com 5+ quartos, saindo de Curitiba. Litoral só de São Francisco do Sul para o sul; serra e represas de Rio dos Cedros como alternativas.</p>
+    <div class="facts">
+      <span class="chip">👥 10 pessoas</span>
+      <span class="chip">👶 1 criança (2 anos)</span>
+      <span class="chip">🐾 1 pet</span>
+      <span class="chip">🎱 curte mesa de sinuca</span>
+      <span class="chip">📅 30/12 → 02/01 · 3 noites</span>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <section class="best">
+    <div class="b"><div class="ico">💰</div><div class="lab">Mais barata</div><div class="val">Casa 6 Dormitórios<br>R$ 5.305</div></div>
+    <div class="b"><div class="ico">📍</div><div class="lab">Mais perto</div><div class="val">Beira-mar de Morretes<br>~1h</div></div>
+    <div class="b"><div class="ico">⭐</div><div class="lab">Melhor nota</div><div class="val">Beira-mar de Morretes<br>5,0 (23)</div></div>
+    <div class="b"><div class="ico">🚤</div><div class="lab">Esportes aquáticos</div><div class="val">Morada Boa Vista<br>represa Rio Bonito</div></div>
+    <div class="b"><div class="ico">🎱</div><div class="lab">Mesa de sinuca</div><div class="val">Casa do Lago<br>+ Rio dos Cedros</div></div>
+    <div class="b"><div class="ico">🏖️</div><div class="lab">Praia</div><div class="val">Penha<br>Beto Carrero</div></div>
+  </section>
+
+  <h2 class="section">Comparativo rápido — as 7 casas</h2>
+  <p class="section-sub">Preços de 30/12→02/01 (3 noites), capturados em 10/07/2026. 🧒 = situação da piscina pensando na criança de 2 anos · 🎱 = tem mesa de sinuca.</p>
+
+  <div class="toggle">
+    <button id="btn-total" class="active" onclick="setPrice('total')">Preço total</button>
+    <button id="btn-pp" onclick="setPrice('pp')">Por pessoa (÷10)</button>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>Casa</th><th>Região / cenário</th><th>De Curitiba</th><th>Preço</th><th>Q·C·Banh.</th><th>Máx</th><th>Nota</th><th>🎱</th><th>🧒 Piscina</th></tr>
+      </thead>
+      <tbody>
+        <tr class="rgrp"><td colspan="9">⛰️ Serra &amp; natureza — pertinho de Curitiba</td></tr>
+        <tr>
+          <th>Beira-mar de Morretes</th><td>Morretes, PR · serra/rio</td>
+          <td><span class="pill near">~1h</span></td>
+          <td class="hl"><span class="price-total">R$ 16.922</span><span class="price-pp">R$ 1.692</span></td>
+          <td>5·7·5,5</td><td>11</td><td><span class="stars">★ 5,0</span> (23)</td><td>—</td><td><span class="kid-warn">❓ confirmar cerca · rio</span></td>
+        </tr>
+
+        <tr class="rgrp"><td colspan="9">🏖️ Litoral — São Francisco do Sul e ao sul</td></tr>
+        <tr>
+          <th>Triplex Praia Grande</th><td>São Francisco do Sul, SC · praia</td>
+          <td>~2h25</td>
+          <td class="hl"><span class="price-total">R$ 13.058</span><span class="price-pp">R$ 1.306</span></td>
+          <td>5·9·5</td><td>15</td><td><span class="stars">novo</span></td><td><span class="yes">✓</span></td><td><span class="kid-warn">❓ confirmar cerca</span></td>
+        </tr>
+        <tr>
+          <th>Casa Capri (alto padrão)</th><td>Ubatuba/SF do Sul, SC · praia</td>
+          <td>~2h25</td>
+          <td class="hl"><span class="price-total">R$ 12.536</span><span class="price-pp">R$ 1.254</span></td>
+          <td>6·9·6</td><td>10</td><td><span class="stars">★ 4,94</span> (17)</td><td><span class="yes">✓</span></td><td><span class="kid-no">⚠️ piscina sem cerca</span></td>
+        </tr>
+        <tr>
+          <th>Pé na areia</th><td>Penha, SC · praia</td>
+          <td>~2h30–3h</td>
+          <td class="hl"><span class="price-total">R$ 17.643 <span class="pill exp">cara</span></span><span class="price-pp">R$ 1.764</span></td>
+          <td>5·6·3,5</td><td>10</td><td><span class="stars">★ 4,87</span> (126)</td><td>—</td><td><span class="kid-no">⚠️ SPA sem cerca · mar</span></td>
+        </tr>
+
+        <tr class="rgrp"><td colspan="9">🌊 Represas de Rio dos Cedros — esportes aquáticos (~30 min de Pomerode)</td></tr>
+        <tr>
+          <th>Morada Boa Vista 01</th><td>Rio dos Cedros, SC · represa Rio Bonito</td>
+          <td>~3h–3h30</td>
+          <td class="hl"><span class="price-total">R$ 10.447</span><span class="price-pp">R$ 1.045</span></td>
+          <td>6·11·8</td><td>16+</td><td><span class="stars">★ 4,79</span> (14)</td><td><span class="yes">✓</span></td><td><span class="kid-warn">sem piscina · lago</span></td>
+        </tr>
+        <tr>
+          <th>Casa do Lago</th><td>Rio dos Cedros, SC · lago/fazenda</td>
+          <td>~3h–3h30</td>
+          <td class="hl"><span class="price-total">R$ 10.300 <span class="pill cheap">barata</span></span><span class="price-pp">R$ 1.030</span></td>
+          <td>5·10·2,5</td><td>14</td><td><span class="stars">★ 4,88</span> (8)</td><td><span class="yes">✓</span></td><td><span class="kid-no">⚠️ piscina sem cerca · lago</span></td>
+        </tr>
+        <tr>
+          <th>Casa com 6 Dormitórios</th><td>Rio dos Cedros, SC · acesso ao lago</td>
+          <td>~3h–3h30</td>
+          <td class="hl"><span class="price-total">R$ 5.305 <span class="pill cheap">+ barata</span></span><span class="price-pp">R$ 531</span></td>
+          <td>6·8·3</td><td>16+</td><td><span class="stars">novo</span></td><td><span class="yes">✓</span></td><td><span class="kid-warn">sem piscina · lago</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ==================== GRUPO A ==================== -->
+  <div class="group">⛰️ Serra &amp; natureza — pertinho de Curitiba <span class="cnt">1 casa · ~1h</span></div>
+  <p class="group-sub">A opção mais perto de casa, com piscina aquecida e rio. Região do trem da Serra do Mar, Graciosa e cachoeiras.</p>
+  <div class="cards">
+
+    <article class="card">
+      <div class="card-grid">
+        <div class="gallery">
+          <img class="main" id="mA1" src="https://a0.muscache.com/im/pictures/48b04068-191b-4252-b717-a0255a1e337e.jpg?im_w=720" alt="Beira-mar de Morretes">
+          <div class="thumbs">
+            <img src="https://a0.muscache.com/im/pictures/48b04068-191b-4252-b717-a0255a1e337e.jpg?im_w=240" onclick="sw('mA1',this)">
+            <img src="https://a0.muscache.com/im/pictures/c408a204-fd87-4433-891d-e3442a19682d.jpg?im_w=240" onclick="sw('mA1',this)">
+            <img src="https://a0.muscache.com/im/pictures/d8e31651-4017-41da-98da-85125b9ea446.jpg?im_w=240" onclick="sw('mA1',this)">
+            <img src="https://a0.muscache.com/im/pictures/15e32274-ab5f-410f-aca8-d50128169067.jpg?im_w=240" onclick="sw('mA1',this)">
+            <img src="https://a0.muscache.com/im/pictures/088b29ae-6483-4dcc-a4dd-8aeae78896f0.jpg?im_w=240" onclick="sw('mA1',this)">
+          </div>
+        </div>
+        <div class="card-body">
+          <span class="rank">MAIS PERTO · MELHOR NOTA</span>
+          <h3>Beira-mar de Morretes</h3>
+          <div class="loc">Morretes, PR <span class="scene">serra / rio (não é praia)</span></div>
+          <div class="priceline"><span class="big"><span class="price-total">R$ 16.922</span><span class="price-pp">R$ 1.692</span></span><span class="per"><span class="price-total">R$ 1.692/pessoa</span><span class="price-pp">R$ 16.922 no total</span></span></div>
+          <div class="kidbar warn">❓ Piscina aquecida e rio ao lado (água aberta). Confirme a cerca da piscina e atenção com a criança perto do rio.</div>
+          <div class="kv">
+            <div><span class="k">Estrutura</span><span class="v">5 quartos · 7 camas · 5,5 banheiros</span></div>
+            <div><span class="k">Capacidade</span><span class="v">até 11</span></div>
+            <div><span class="k">Distância</span><span class="v">~1h de Curitiba (a mais perto)</span></div>
+            <div><span class="k">Avaliações</span><span class="v">★ 5,0 · 23 · Superhost</span></div>
+            <div><span class="k">Pet</span><span class="v">permitido ✓</span></div>
+            <div><span class="k">Extra</span><span class="v">opção de cozinheira</span></div>
+          </div>
+          <div class="h4">Na casa</div>
+          <p class="doing">Piscina aquecida, casa muito equipada, rio e mata em volta, self check-in e opção de contratar cozinheira (a Lucy, elogiada nas avaliações).</p>
+          <div class="h4">Na região</div>
+          <p class="doing">Trem da Serra do Mar, barreado, Estrada da Graciosa, Ekôa Park e cachoeiras.</p>
+          <div class="pc">
+            <div class="pros"><h5 style="color:var(--green)">Prós</h5><ul><li>A mais perto (~1h) e nota 5,0 (Superhost)</li><li>Piscina aquecida + natureza</li><li>Aposta mais segura da lista</li></ul></div>
+            <div class="cons"><h5 style="color:var(--red)">Contras</h5><ul><li>Não é praia (é serra/rio)</li><li>Uma das mais caras (R$ 16.922)</li><li>Só 7 camas p/ 10 · sem sinuca</li></ul></div>
+          </div>
+          <a class="btn" href="https://www.airbnb.com.br/rooms/40649581?adults=10&check_in=2026-12-30&check_out=2027-01-02" target="_blank" rel="noopener">Ver no Airbnb →</a>
+        </div>
+      </div>
+    </article>
+  </div>
+
+  <!-- ==================== GRUPO B ==================== -->
+  <div class="group">🏖️ Litoral — São Francisco do Sul e ao sul <span class="cnt">3 casas · ~2h25 a 3h</span></div>
+  <p class="group-sub">Só praias de São Francisco do Sul pra baixo. Ubatuba tem mar mais calmo (bom pra criança); Penha fica coladinha no Beto Carrero.</p>
+  <div class="cards">
+
+    <article class="card">
+      <div class="card-grid">
+        <div class="gallery">
+          <img class="main" id="mB1" src="https://a0.muscache.com/im/pictures/a32ddd07-dc43-4b0b-9d19-414722a0cebf.jpg?im_w=720" alt="Triplex Praia Grande">
+          <div class="thumbs">
+            <img src="https://a0.muscache.com/im/pictures/a32ddd07-dc43-4b0b-9d19-414722a0cebf.jpg?im_w=240" onclick="sw('mB1',this)">
+            <img src="https://a0.muscache.com/im/pictures/ccd43087-632d-4716-bfbd-da532e004f1c.jpg?im_w=240" onclick="sw('mB1',this)">
+            <img src="https://a0.muscache.com/im/pictures/fa6366be-330a-48f9-84b8-0f02c4a2f094.jpg?im_w=240" onclick="sw('mB1',this)">
+            <img src="https://a0.muscache.com/im/pictures/2e4aa9c2-db12-4a63-ae1f-3ca835e49d41.jpg?im_w=240" onclick="sw('mB1',this)">
+            <img src="https://a0.muscache.com/im/pictures/963bac3a-5fff-45ba-b2a8-09ef43683602.jpg?im_w=240" onclick="sw('mB1',this)">
+          </div>
+        </div>
+        <div class="card-body">
+          <span class="rank">PÉ NA AREIA</span>
+          <h3>Espetacular Triplex na Praia Grande</h3>
+          <div class="loc">São Francisco do Sul, SC <span class="scene">pé na areia</span> <span class="scene sinuca">🎱 sinuca</span></div>
+          <div class="priceline"><span class="big"><span class="price-total">R$ 13.058</span><span class="price-pp">R$ 1.306</span></span><span class="per"><span class="price-total">R$ 1.306/pessoa</span><span class="price-pp">R$ 13.058 no total</span></span></div>
+          <div class="kidbar warn">❓ Tem piscina e jacuzzi; o anúncio não informa cerca — confirme com o anfitrião pela criança.</div>
+          <div class="kv">
+            <div><span class="k">Estrutura</span><span class="v">5 quartos · 9 camas · 5 banheiros</span></div>
+            <div><span class="k">Capacidade</span><span class="v">até 15</span></div>
+            <div><span class="k">Distância</span><span class="v">~2h25 de Curitiba</span></div>
+            <div><span class="k">Avaliações</span><span class="v">anúncio novo (sem notas)</span></div>
+            <div><span class="k">Pet</span><span class="v">permitido ✓</span></div>
+            <div><span class="k">Anfitrião</span><span class="v">de Curitiba</span></div>
+          </div>
+          <div class="h4">Na casa</div>
+          <p class="doing">Triplex pé na praia com piscina, jacuzzi, mesa de sinuca, churrasqueira e estacionamento p/ 4 carros.</p>
+          <div class="h4">Na região</div>
+          <p class="doing">Praia Grande (25 km de areia, tranquila), centro histórico colonial e praias da Enseada/Ubatuba.</p>
+          <div class="pc">
+            <div class="pros"><h5 style="color:var(--green)">Prós</h5><ul><li>Pé na praia com piscina + jacuzzi + sinuca</li><li>Cabe folgado (15) e 5 banheiros</li></ul></div>
+            <div class="cons"><h5 style="color:var(--red)">Contras</h5><ul><li>Sem avaliações ainda</li><li>Praia isolada do centro</li></ul></div>
+          </div>
+          <a class="btn" href="https://www.airbnb.com.br/rooms/968885723507341497?adults=10&check_in=2026-12-30&check_out=2027-01-02" target="_blank" rel="noopener">Ver no Airbnb →</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="card-grid">
+        <div class="gallery">
+          <img class="main" id="mB2" src="https://a0.muscache.com/im/pictures/2165f8ad-3b6f-4526-8d85-410e35e5ae13.jpg?im_w=720" alt="Casa Capri alto padrão">
+          <div class="thumbs">
+            <img src="https://a0.muscache.com/im/pictures/2165f8ad-3b6f-4526-8d85-410e35e5ae13.jpg?im_w=240" onclick="sw('mB2',this)">
+            <img src="https://a0.muscache.com/im/pictures/f82ee0da-1cd3-43d5-bf52-78a01c1abc43.jpg?im_w=240" onclick="sw('mB2',this)">
+            <img src="https://a0.muscache.com/im/pictures/95bbad39-3dbe-478c-b7ac-25ddbf7b90f4.jpg?im_w=240" onclick="sw('mB2',this)">
+            <img src="https://a0.muscache.com/im/pictures/9f3d9c5b-8c3b-4f8d-801a-0a84ed91d27a.jpg?im_w=240" onclick="sw('mB2',this)">
+            <img src="https://a0.muscache.com/im/pictures/14f05b72-ffa8-4f3c-9e88-ccf91537798c.jpg?im_w=240" onclick="sw('mB2',this)">
+          </div>
+        </div>
+        <div class="card-body">
+          <span class="rank">ALTO PADRÃO</span>
+          <h3>Casa Capri (alto padrão)</h3>
+          <div class="loc">Ubatuba / São Francisco do Sul, SC <span class="scene">praia + piscina</span> <span class="scene sinuca">🎱 sinuca</span></div>
+          <div class="priceline"><span class="big"><span class="price-total">R$ 12.536</span><span class="price-pp">R$ 1.254</span></span><span class="per"><span class="price-total">R$ 1.254/pessoa</span><span class="price-pp">R$ 12.536 no total</span></span></div>
+          <div class="kidbar warn">⚠️ Casa linda, mas a piscina é sem grade de proteção — atenção constante com a criança de 2 anos.</div>
+          <div class="kv">
+            <div><span class="k">Estrutura</span><span class="v">6 quartos · 9 camas · 6 banheiros</span></div>
+            <div><span class="k">Capacidade</span><span class="v">até 10 (justo)</span></div>
+            <div><span class="k">Distância</span><span class="v">~2h25 de Curitiba</span></div>
+            <div><span class="k">Avaliações</span><span class="v">★ 4,94 · 17</span></div>
+            <div><span class="k">Roupa cama</span><span class="v">fornece ✓ (+ 10 toalhas)</span></div>
+            <div><span class="k">Atenção</span><span class="v">anfitrião responde devagar</span></div>
+          </div>
+          <div class="h4">Na casa</div>
+          <p class="doing">Casa de 487 m² alto padrão: piscina, mesa de sinuca, churrasqueira, fogão a lenha, caiaque, bicicletas, ar-condicionado, poço artesiano e acesso à praia.</p>
+          <div class="h4">Na região</div>
+          <p class="doing">Bairro nobre perto da Enseada; praias, centro histórico e Baía da Babitonga.</p>
+          <div class="pc">
+            <div class="pros"><h5 style="color:var(--green)">Prós</h5><ul><li>Alto padrão, 6 banheiros, fornece enxoval</li><li>Piscina + sinuca + caiaque + praia</li></ul></div>
+            <div class="cons"><h5 style="color:var(--red)">Contras</h5><ul><li>Piscina sem cerca (criança)</li><li>Máx. 10 e host responde devagar</li></ul></div>
+          </div>
+          <a class="btn" href="https://www.airbnb.com.br/rooms/39082383?adults=10&check_in=2026-12-30&check_out=2027-01-02" target="_blank" rel="noopener">Ver no Airbnb →</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="card-grid">
+        <div class="gallery">
+          <img class="main" id="mB3" src="https://a0.muscache.com/im/pictures/airflow/Hosting-38096056/original/b028b916-e11a-4b1a-8d94-010daa0f1039.jpg?im_w=720" alt="Pé na areia, Penha">
+          <div class="thumbs">
+            <img src="https://a0.muscache.com/im/pictures/airflow/Hosting-38096056/original/b028b916-e11a-4b1a-8d94-010daa0f1039.jpg?im_w=240" onclick="sw('mB3',this)">
+            <img src="https://a0.muscache.com/im/pictures/airflow/Hosting-38096056/original/fcf24ed6-70e9-4e74-90c5-908cf0e6c010.jpg?im_w=240" onclick="sw('mB3',this)">
+            <img src="https://a0.muscache.com/im/pictures/airflow/Hosting-38096056/original/fd697870-abb0-406f-98f6-1e1585009a4d.jpg?im_w=240" onclick="sw('mB3',this)">
+            <img src="https://a0.muscache.com/im/pictures/airflow/Hosting-38096056/original/0697c686-12f2-422e-b3a6-319bf7151e72.jpg?im_w=240" onclick="sw('mB3',this)">
+            <img src="https://a0.muscache.com/im/pictures/airflow/Hosting-38096056/original/db5214b7-f457-467c-bda2-64de7f5769db.jpg?im_w=240" onclick="sw('mB3',this)">
+          </div>
+        </div>
+        <div class="card-body">
+          <span class="rank">BETO CARRERO A 700 m</span>
+          <h3>Pedaço de paraíso pé na areia</h3>
+          <div class="loc">Penha, SC <span class="scene">pé na areia</span></div>
+          <div class="priceline"><span class="big"><span class="price-total">R$ 17.643</span><span class="price-pp">R$ 1.764</span></span><span class="per"><span class="price-total">R$ 1.764/pessoa · a mais cara</span><span class="price-pp">R$ 17.643 no total</span></span></div>
+          <div class="kidbar warn">⚠️ Piscina/SPA sem grade e casa pé na areia (mar aberto). Atenção redobrada com a criança.</div>
+          <div class="kv">
+            <div><span class="k">Estrutura</span><span class="v">5 quartos · 6 camas · 3,5 banheiros</span></div>
+            <div><span class="k">Capacidade</span><span class="v">até 10 (sem folga)</span></div>
+            <div><span class="k">Distância</span><span class="v">~2h30–3h de Curitiba</span></div>
+            <div><span class="k">Avaliações</span><span class="v">★ 4,87 · 126</span></div>
+            <div><span class="k">Pet</span><span class="v">até 2, taxa R$ 100/pet</span></div>
+            <div><span class="k">Roupa cama</span><span class="v">não fornece (R$ 25/pessoa)</span></div>
+          </div>
+          <div class="h4">Na casa</div>
+          <p class="doing">Acesso direto à praia, SPA aquecida com vista mar, pergolado, churrasqueira e Wi-Fi 234 Mbps. A 700 m do Beto Carrero (dá pra ir a pé).</p>
+          <div class="h4">Na região</div>
+          <p class="doing">Beto Carrero World, praias de Armação, trilha/mirante e passeios de barco pelas ilhas.</p>
+          <div class="pc">
+            <div class="pros"><h5 style="color:var(--green)">Prós</h5><ul><li>Pé na areia + Beto Carrero ao lado</li><li>126 avaliações (4,87) — consolidada</li></ul></div>
+            <div class="cons"><h5 style="color:var(--red)">Contras</h5><ul><li>A mais cara · máx 10 · sem sinuca</li><li>Não inclui roupa de cama/toalha</li></ul></div>
+          </div>
+          <a class="btn" href="https://www.airbnb.com.br/rooms/38096056?adults=10&check_in=2026-12-30&check_out=2027-01-02" target="_blank" rel="noopener">Ver no Airbnb →</a>
+        </div>
+      </div>
+    </article>
+  </div>
+
+  <!-- ==================== GRUPO C ==================== -->
+  <div class="group">🌊 Represas de Rio dos Cedros — esportes aquáticos <span class="cnt">3 casas · ~3h a 3h30 (a ~30 min de Pomerode)</span></div>
+  <p class="group-sub">A Região dos Lagos: represas do <b>Rio Bonito</b> e do <b>Pinhal</b> (e a Alto Palmeiras, em Pomerode) liberam lancha, jet ski, caiaque, stand up e pesca — dá pra alugar equipamento no Pinhal. Bônus: várias dessas casas têm mesa de sinuca. A "água" aqui é lago (aberta), então atenção com a criança.</p>
+  <div class="cards">
+
+    <article class="card">
+      <div class="card-grid">
+        <div class="gallery">
+          <img class="main" id="mC1" src="https://a0.muscache.com/im/pictures/hosting/Hosting-1071589736615033715/original/fb9d6beb-104c-44be-a0be-45e8bb71bd7d.jpeg?im_w=720" alt="Morada Boa Vista">
+          <div class="thumbs">
+            <img src="https://a0.muscache.com/im/pictures/hosting/Hosting-1071589736615033715/original/fb9d6beb-104c-44be-a0be-45e8bb71bd7d.jpeg?im_w=240" onclick="sw('mC1',this)">
+            <img src="https://a0.muscache.com/im/pictures/miso/Hosting-1071589736615033715/original/14beb3f4-1b8e-4d8f-b079-2c20136e7f4a.jpeg?im_w=240" onclick="sw('mC1',this)">
+            <img src="https://a0.muscache.com/im/pictures/miso/Hosting-1071589736615033715/original/948c1a6d-3d8d-40aa-b83b-2c9d69178897.jpeg?im_w=240" onclick="sw('mC1',this)">
+            <img src="https://a0.muscache.com/im/pictures/miso/Hosting-1071589736615033715/original/204c438f-2253-4995-8d52-12fa7c0e98c1.jpeg?im_w=240" onclick="sw('mC1',this)">
+            <img src="https://a0.muscache.com/im/pictures/miso/Hosting-1071589736615033715/original/4e7383e8-8f2a-4901-856d-9e12cab12de7.jpeg?im_w=240" onclick="sw('mC1',this)">
+          </div>
+        </div>
+        <div class="card-body">
+          <span class="rank">🚤 REPRESA · 6 SUÍTES</span>
+          <h3>Morada Boa Vista 01</h3>
+          <div class="loc">Rio dos Cedros, SC <span class="scene">frente pra represa (Rio Bonito)</span> <span class="scene sinuca">🎱 sinuca</span></div>
+          <div class="priceline"><span class="big"><span class="price-total">R$ 10.447</span><span class="price-pp">R$ 1.045</span></span><span class="per"><span class="price-total">R$ 1.045/pessoa</span><span class="price-pp">R$ 10.447 no total</span></span></div>
+          <div class="kidbar neutral">Sem piscina; fica de frente pro lago (água aberta) — bom pros esportes aquáticos, atenção com a criança. ⚠️ Proíbe fogos e som após 22h (multa).</div>
+          <div class="kv">
+            <div><span class="k">Estrutura</span><span class="v">6 suítes · 11 camas · 8 banheiros</span></div>
+            <div><span class="k">Capacidade</span><span class="v">16+ (sobra espaço)</span></div>
+            <div><span class="k">Distância</span><span class="v">~3h–3h30 · ~30 min de Pomerode</span></div>
+            <div><span class="k">Avaliações</span><span class="v">★ 4,79 · 14</span></div>
+            <div><span class="k">Água</span><span class="v">caiaque · frente pro lago</span></div>
+            <div><span class="k">Roupa cama</span><span class="v">não fornece</span></div>
+          </div>
+          <div class="h4">Na casa</div>
+          <p class="doing">6 suítes com ar (um banheiro por casal), vista frontal pro lago, cozinha completa (forno de pizza, cervejeira), lareira, mesa de sinuca e caiaque.</p>
+          <div class="h4">Na região</div>
+          <p class="doing">Represas do Rio Bonito e Pinhal: lancha, jet ski, stand up e pesca; cachoeiras e cavalgadas. Perto de Pomerode/Blumenau.</p>
+          <div class="pc">
+            <div class="pros"><h5 style="color:var(--green)">Prós</h5><ul><li>De frente pra represa + caiaque + sinuca</li><li>6 suítes com ar + 8 banheiros</li><li>Barata por pessoa</li></ul></div>
+            <div class="cons"><h5 style="color:var(--red)">Contras</h5><ul><li>Proíbe fogos/som após 22h (virada)</li><li>Levar enxoval · ~3h30 · relatos de queda de energia</li></ul></div>
+          </div>
+          <a class="btn" href="https://www.airbnb.com.br/rooms/1071589736615033715?adults=10&check_in=2026-12-30&check_out=2027-01-02" target="_blank" rel="noopener">Ver no Airbnb →</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="card-grid">
+        <div class="gallery">
+          <img class="main" id="mC2" src="https://a0.muscache.com/im/pictures/44603630-f7be-4c4e-a977-e5d55b9cfe00.jpg?im_w=720" alt="Casa do Lago">
+          <div class="thumbs">
+            <img src="https://a0.muscache.com/im/pictures/44603630-f7be-4c4e-a977-e5d55b9cfe00.jpg?im_w=240" onclick="sw('mC2',this)">
+            <img src="https://a0.muscache.com/im/pictures/7baca773-c98f-4bec-9431-ea44034edafd.jpg?im_w=240" onclick="sw('mC2',this)">
+            <img src="https://a0.muscache.com/im/pictures/9d85fa3c-e931-4cc1-a5d2-6c8f0830650d.jpg?im_w=240" onclick="sw('mC2',this)">
+            <img src="https://a0.muscache.com/im/pictures/b0ed361e-b170-4840-afc6-d873b41778f4.jpg?im_w=240" onclick="sw('mC2',this)">
+            <img src="https://a0.muscache.com/im/pictures/7da1bf15-8c8a-419c-8ed9-5e69dff07abe.jpg?im_w=240" onclick="sw('mC2',this)">
+          </div>
+        </div>
+        <div class="card-body">
+          <span class="rank">🎱 SINUCA · FAZENDA</span>
+          <h3>Casa do Lago</h3>
+          <div class="loc">Rio dos Cedros, SC <span class="scene">lago / hotel-fazenda</span> <span class="scene sinuca">🎱 sinuca</span></div>
+          <div class="priceline"><span class="big"><span class="price-total">R$ 10.300</span><span class="price-pp">R$ 1.030</span></span><span class="per"><span class="price-total">R$ 1.030/pessoa</span><span class="price-pp">R$ 10.300 no total</span></span></div>
+          <div class="kidbar warn">⚠️ Piscina sem grade + lago para nadar (água aberta). Muita diversão e bichos, mas exige olho na criança.</div>
+          <div class="kv">
+            <div><span class="k">Estrutura</span><span class="v">5 quartos · 10 camas · 2,5 banheiros</span></div>
+            <div><span class="k">Capacidade</span><span class="v">até 14</span></div>
+            <div><span class="k">Distância</span><span class="v">~3h–3h30 · ~30 min de Pomerode</span></div>
+            <div><span class="k">Avaliações</span><span class="v">★ 4,88 · 8</span></div>
+            <div><span class="k">Wi-Fi</span><span class="v">fraco (9 Mbps)</span></div>
+            <div><span class="k">Extra</span><span class="v">piscina aquecida opcional</span></div>
+          </div>
+          <div class="h4">Na casa</div>
+          <p class="doing">Lago p/ nadar e pescar, piscina, mesa de sinuca, pebolim, futebol/vôlei, redes, lareira, churrasqueira e animais da fazenda.</p>
+          <div class="h4">Na região</div>
+          <p class="doing">Represas do Rio Bonito e Pinhal (esportes aquáticos), +100 cachoeiras, passeios de barco e Parque Águas de São Bernardo.</p>
+          <div class="pc">
+            <div class="pros"><h5 style="color:var(--green)">Prós</h5><ul><li>Barata (R$ 1.030/pessoa) + sinuca</li><li>Muita diversão sem sair de casa</li></ul></div>
+            <div class="cons"><h5 style="color:var(--red)">Contras</h5><ul><li>Longe (~3h30) · Wi-Fi fraco</li><li>Só 2,5 banheiros · piscina sem cerca</li></ul></div>
+          </div>
+          <a class="btn" href="https://www.airbnb.com.br/rooms/773753829171784102?adults=10&check_in=2026-12-30&check_out=2027-01-02" target="_blank" rel="noopener">Ver no Airbnb →</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="card-grid">
+        <div class="gallery">
+          <img class="main" id="mC3" src="https://a0.muscache.com/im/pictures/hosting/Hosting-1492188441348562373/original/df78aaed-5e5a-4c3b-b0fc-402801a09320.jpeg?im_w=720" alt="Casa com 6 Dormitórios">
+          <div class="thumbs">
+            <img src="https://a0.muscache.com/im/pictures/hosting/Hosting-1492188441348562373/original/df78aaed-5e5a-4c3b-b0fc-402801a09320.jpeg?im_w=240" onclick="sw('mC3',this)">
+            <img src="https://a0.muscache.com/im/pictures/hosting/Hosting-1492188441348562373/original/ae8f5bd9-c398-487d-bf99-8de79af96a55.jpeg?im_w=240" onclick="sw('mC3',this)">
+            <img src="https://a0.muscache.com/im/pictures/hosting/Hosting-1492188441348562373/original/70f13667-3cb8-4f28-b82d-5ee6e45fe0cb.jpeg?im_w=240" onclick="sw('mC3',this)">
+            <img src="https://a0.muscache.com/im/pictures/hosting/Hosting-1492188441348562373/original/77705cab-ea63-4a62-8942-df58baf05403.jpeg?im_w=240" onclick="sw('mC3',this)">
+            <img src="https://a0.muscache.com/im/pictures/hosting/Hosting-1492188441348562373/original/d5282f85-47f4-4e8b-a346-12c24b23ea00.jpeg?im_w=240" onclick="sw('mC3',this)">
+          </div>
+        </div>
+        <div class="card-body">
+          <span class="rank alt">🔎 NOVA · MAIS BARATA · LAGO + SINUCA</span>
+          <h3>Casa com 6 Dormitórios</h3>
+          <div class="loc">Rio dos Cedros, SC <span class="scene">acesso ao lago</span> <span class="scene sinuca">🎱 sinuca</span></div>
+          <div class="priceline"><span class="big"><span class="price-total">R$ 5.305</span><span class="price-pp">R$ 531</span></span><span class="per"><span class="price-total">R$ 531/pessoa · a mais barata de todas</span><span class="price-pp">R$ 5.305 no total</span></span></div>
+          <div class="kidbar warn">Sem piscina; tem acesso ao lago (água aberta). Anúncio novo e enxuto — vale confirmar tudo com o anfitrião.</div>
+          <div class="kv">
+            <div><span class="k">Estrutura</span><span class="v">6 quartos · 8 camas · 3 banheiros</span></div>
+            <div><span class="k">Capacidade</span><span class="v">16+</span></div>
+            <div><span class="k">Distância</span><span class="v">~3h–3h30 · ~30 min de Pomerode</span></div>
+            <div><span class="k">Avaliações</span><span class="v">anúncio novo (sem notas)</span></div>
+            <div><span class="k">Água</span><span class="v">acesso ao lago</span></div>
+            <div><span class="k">Extra</span><span class="v">área de festas + sinuca · fogão a lenha</span></div>
+          </div>
+          <div class="h4">Na casa</div>
+          <p class="doing">Casa espaçosa com acesso ao lago, área de festas com mesa de sinuca e fogão a lenha. A mais barata da lista (R$ 531/pessoa).</p>
+          <div class="h4">Na região</div>
+          <p class="doing">Represas do Rio Bonito e Pinhal para lancha, jet ski, caiaque e stand up; cachoeiras e Pomerode/Blumenau ao lado.</p>
+          <div class="pc">
+            <div class="pros"><h5 style="color:var(--green)">Prós</h5><ul><li>De longe a mais barata (R$ 531/pessoa)</li><li>Acesso ao lago + mesa de sinuca</li><li>6 quartos p/ o grupo</li></ul></div>
+            <div class="cons"><h5 style="color:var(--red)">Contras</h5><ul><li>Anúncio novo, sem avaliações</li><li>Só 3 banheiros · comodidades pouco detalhadas</li><li>Confirmar pet, roupa de cama e esportes no lago</li></ul></div>
+          </div>
+          <a class="btn" href="https://www.airbnb.com.br/rooms/1492188441348562373?adults=10&check_in=2026-12-30&check_out=2027-01-02" target="_blank" rel="noopener">Ver no Airbnb →</a>
+        </div>
+      </div>
+    </article>
+  </div>
+
+  <!-- GUIA -->
+  <h2 class="section">Ajuda a decidir</h2>
+  <p class="section-sub">Um atalho pra afunilar a conversa no grupo.</p>
+  <div class="guide">
+    <div class="g"><div class="q">🚤 Esportes aquáticos (represa)</div><div class="a"><b>Morada Boa Vista</b> (frente pra represa Rio Bonito) e <b>Casa do Lago</b>; a <b>Casa com 6 Dormitórios</b> tem acesso ao lago pelo menor preço.</div></div>
+    <div class="g"><div class="q">🎱 Mesa de sinuca</div><div class="a">Tem em <b>Casa do Lago</b>, <b>Morada Boa Vista</b>, <b>Casa 6 Dormitórios</b>, <b>Triplex</b> e <b>Casa Capri</b>.</div></div>
+    <div class="g"><div class="q">🧒 Segurança da criança</div><div class="a">Nenhuma tem piscina cercada confirmada — as de piscina sem cerca (Capri, Penha, Casa do Lago) pedem olho constante; nas de lago, atenção com a água aberta.</div></div>
+    <div class="g"><div class="q">💸 Gastar menos</div><div class="a"><b>Casa 6 Dormitórios</b> (R$ 531/pessoa) e <b>Casa do Lago</b>/<b>Morada Boa Vista</b> (~R$ 1.030).</div></div>
+    <div class="g"><div class="q">🚗 Viajar pouco</div><div class="a"><b>Beira-mar de Morretes</b> (~1h). As de represa são as mais longe (~3h30).</div></div>
+    <div class="g"><div class="q">🏖️ Praia</div><div class="a"><b>Penha</b> (Beto Carrero ao lado), <b>Triplex</b> e <b>Capri</b> (SF do Sul).</div></div>
+    <div class="g"><div class="q">🛏️ Conforto (suíte por casal)</div><div class="a"><b>Morada Boa Vista</b>: 6 suítes com ar e 8 banheiros.</div></div>
+    <div class="g"><div class="q">🎉 Virada animada</div><div class="a"><b>Praia</b> (SF do Sul/Penha) combina mais. Evitar <b>Morada Boa Vista</b> (proíbe fogos e som após 22h).</div></div>
+  </div>
+
+  <div class="note">
+    <b>Antes de fechar:</b> preços de 30/12→02/01 capturados em 10/07/2026, mudam conforme a procura.
+    <b>Piscina e criança:</b> "sem grade de proteção" é o que o próprio anúncio informa; onde está "confirmar", pergunte ao anfitrião se a piscina é cercada.
+    <b>Represas:</b> Rio Bonito e Pinhal (Rio dos Cedros) e Alto Palmeiras (Pomerode) permitem lancha, jet ski, caiaque e stand up — leve/alugue o equipamento e confirme rampa de acesso.
+    A <b>Casa com 6 Dormitórios</b> é nova e sem avaliações: confirme pet, enxoval e estrutura antes de fechar.
+    "Beira-mar de Morretes" é <b>serra/rio</b>, não praia.
+  </div>
+
+  <footer>
+    <p>Comparativo montado em 10/07/2026 a partir dos anúncios do Airbnb, filtrado com os nossos critérios: 5+ quartos; litoral só de São Francisco do Sul para o sul; serra e represas de Rio dos Cedros (esportes aquáticos, ~30 min de Pomerode) como alternativas; mesa de sinuca como diferencial; atenção à piscina pela criança de 2 anos. Dados e preços sujeitos a alteração. Fotos © anfitriões/Airbnb.</p>
+  </footer>
+
+</div>
+
+<script>
+  function sw(id, el){ document.getElementById(id).src = el.src.replace('im_w=240','im_w=720'); }
+  function setPrice(mode){
+    document.body.classList.toggle('pp', mode==='pp');
+    document.getElementById('btn-pp').classList.toggle('active', mode==='pp');
+    document.getElementById('btn-total').classList.toggle('active', mode==='total');
+  }
+</script>
+</body>
+</html>
