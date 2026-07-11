@@ -13,6 +13,8 @@
   *{box-sizing:border-box;margin:0;padding:0}
   body{font-family:'Segoe UI',system-ui,-apple-system,Roboto,Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.55}
   a{color:var(--ocean)}
+  img{max-width:100%}
+  .swipe-hint{display:none}
   .wrap{max-width:1200px;margin:0 auto;padding:0 18px}
 
   header.hero{background:linear-gradient(135deg,#0e7490 0%,#0891b2 45%,#06b6d4 100%);color:#fff;padding:44px 0 58px;position:relative;overflow:hidden}
@@ -116,9 +118,38 @@
   .note{background:#fffbeb;border:1px solid #fde68a;border-radius:12px;padding:14px 16px;font-size:.88rem;color:#78350f;margin-top:24px}
 
   @media(max-width:780px){
+    .wrap{padding:0 14px}
+    header.hero{padding:32px 0 44px}
+    header.hero::after{font-size:52px;right:14px;top:14px}
+    .hero h1{font-size:1.55rem}
+    .hero p.sub{font-size:.96rem}
+    .best{margin-top:-26px}
     .card-grid{grid-template-columns:1fr}
-    .hero h1{font-size:1.7rem}
     .kv{grid-template-columns:1fr}
+    .card-body{padding:16px 16px}
+    .card h3{font-size:1.18rem}
+    .priceline{padding:10px 12px}
+    .priceline .big{font-size:1.4rem}
+    h2.section{font-size:1.3rem}
+    .group{font-size:1.05rem}
+    table{min-width:780px;font-size:.82rem}
+    th,td{padding:9px 10px}
+    tbody th{position:sticky;left:0;z-index:1;box-shadow:1px 0 0 var(--line)}
+    thead th:first-child{position:sticky;left:0;z-index:4}
+    .swipe-hint{display:flex;align-items:center;gap:6px;color:var(--muted);font-size:.8rem;font-weight:600;margin:0 0 8px}
+  }
+  @media(max-width:430px){
+    .best{grid-template-columns:1fr 1fr;gap:9px}
+    .best .b{padding:12px 8px}
+    .best .b .val{font-size:.82rem}
+    .facts{gap:7px}
+    .facts .chip{font-size:.8rem;padding:6px 10px}
+    .thumbs img{height:44px}
+    .rank{font-size:.63rem;padding:3px 8px}
+    .toggle button{padding:8px 12px;font-size:.85rem}
+    .card h3{font-size:1.1rem}
+    .priceline{flex-direction:column;gap:2px}
+    .priceline .big{font-size:1.35rem}
   }
 </style>
 </head>
@@ -157,6 +188,7 @@
     <button id="btn-pp" onclick="setPrice('pp')">Por pessoa (÷10)</button>
   </div>
 
+  <p class="swipe-hint">↔ Deslize a tabela para o lado para ver todas as colunas (o nome da casa fica fixo).</p>
   <div class="table-wrap">
     <table>
       <thead>
