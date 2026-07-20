@@ -23,6 +23,7 @@
   .hero p.sub{font-size:1.05rem;opacity:.96;max-width:760px}
   .facts{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
   .facts .chip{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.28);padding:7px 13px;border-radius:999px;font-size:.9rem;font-weight:600}
+  .facts .chip.hi{background:#fff;color:#166534;border-color:#fff}
 
   .best{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:-34px auto 0;position:relative;z-index:3}
   .best .b{background:var(--card);border-radius:14px;padding:14px 12px;box-shadow:0 8px 24px rgba(2,6,23,.09);text-align:center;border:1px solid var(--line)}
@@ -51,6 +52,7 @@
   .pill.cheap{background:#dcfce7;color:#166534}
   .pill.exp{background:#fee2e2;color:#991b1b}
   .pill.near{background:#e0f2fe;color:#075985}
+  .pill.new{background:#fef3c7;color:#92400e}
   .stars{color:#f59e0b;font-weight:700;white-space:nowrap}
   .yes{color:#166534;font-weight:700}
 
@@ -126,7 +128,7 @@
     .priceline .big{font-size:1.4rem}
     h2.section{font-size:1.3rem}
     .group{font-size:1.05rem}
-    table{min-width:720px;font-size:.82rem}
+    table{min-width:780px;font-size:.82rem}
     th,td{padding:9px 10px}
     tbody th{position:sticky;left:0;z-index:1;box-shadow:1px 0 0 var(--line)}
     thead th:first-child{position:sticky;left:0;z-index:4}
@@ -152,12 +154,12 @@
 <header class="hero">
   <div class="wrap">
     <h1>Réveillon 2027 — Onde vamos passar a virada?</h1>
-    <p class="sub">Nova rodada: <b>sem praia</b>, pra fugir do trânsito pesado de fim de ano no litoral. Só serra, campo e represa — as 8 casas abaixo foram <b>abertas uma a uma no Airbnb</b> e estão disponíveis para 30/12 → 02/01, com 8 hóspedes + pet.</p>
+    <p class="sub">Agora com <b>4 noites</b> (30/12 → 03/01): a noite extra destravou casas que exigiam estadia mínima — incluindo três com <b>mesa de sinuca e 4 banheiros</b>. Sem praia, só serra, campo e represa. As 10 casas abaixo foram abertas uma a uma no Airbnb e estão <b>disponíveis</b> para 8 hóspedes + pet.</p>
     <div class="facts">
       <span class="chip">👥 8 pessoas</span>
       <span class="chip">🐾 1 pet</span>
       <span class="chip">🎱 curte mesa de sinuca</span>
-      <span class="chip">📅 30/12 → 02/01 · 3 noites</span>
+      <span class="chip hi">📅 30/12 → 03/01 · 4 noites</span>
       <span class="chip">🚗 sem litoral = sem trânsito</span>
       <span class="chip">💰 até R$ 20 mil</span>
     </div>
@@ -167,16 +169,16 @@
 <div class="wrap">
 
   <section class="best">
-    <div class="b"><div class="ico">💰</div><div class="lab">Mais barata</div><div class="val">Toca da Família Coelho<br>R$ 2.664</div></div>
+    <div class="b"><div class="ico">💰</div><div class="lab">Mais barata</div><div class="val">Toca da Família Coelho<br>R$ 3.419</div></div>
     <div class="b"><div class="ico">📍</div><div class="lab">Mais perto</div><div class="val">Mil Estações e Capivari<br>~40 min</div></div>
-    <div class="b"><div class="ico">⭐</div><div class="lab">Melhor nota</div><div class="val">4 casas com 5,0<br>WolfsHaus tem 33</div></div>
+    <div class="b"><div class="ico">⭐</div><div class="lab">Melhor nota</div><div class="val">Cabana Lareira Lago<br>4,99 (102)</div></div>
     <div class="b"><div class="ico">👍</div><div class="lab">Mais provada</div><div class="val">Ecosítio<br>169 avaliações</div></div>
-    <div class="b"><div class="ico">🎱</div><div class="lab">Mesa de sinuca</div><div class="val">WolfsHaus · Mil Estações<br>· Casa do Lago</div></div>
-    <div class="b"><div class="ico">🏞️</div><div class="lab">Água aberta</div><div class="val">Capivari (represa)<br>Casa do Lago (lago)</div></div>
+    <div class="b"><div class="ico">🎱</div><div class="lab">Mesa de sinuca</div><div class="val">5 casas<br>(era só 1)</div></div>
+    <div class="b"><div class="ico">🏆</div><div class="lab">Melhor conjunto</div><div class="val">Casa à Beira do Rio<br>R$ 925/pessoa</div></div>
   </section>
 
-  <h2 class="section">Comparativo rápido — as 8 casas</h2>
-  <p class="section-sub">Preços de 30/12→02/01 (3 noites) para <b>8 hóspedes + 1 pet</b>, revalidados em 19/07/2026. Todas confirmadas como <b>disponíveis</b> nessa data. 🎱 = tem mesa de sinuca.</p>
+  <h2 class="section">Comparativo rápido — as 10 casas</h2>
+  <p class="section-sub">Preços de <b>30/12 → 03/01 (4 noites)</b> para <b>8 hóspedes + 1 pet</b>, conferidos um a um no Airbnb — todas com botão "Reservar" liberado. 🎱 = tem mesa de sinuca.</p>
 
   <div class="toggle">
     <button id="btn-total" class="active" onclick="setPrice('total')">Preço total</button>
@@ -187,58 +189,70 @@
   <div class="table-wrap">
     <table>
       <thead>
-        <tr><th>Casa</th><th>Região / cenário</th><th>De Curitiba</th><th>Preço</th><th>Q·C·Banh.</th><th>Máx</th><th>Nota</th><th>🎱</th></tr>
+        <tr><th>Casa</th><th>Região / cenário</th><th>De Curitiba</th><th>Preço (4 noites)</th><th>Q·C·Banh.</th><th>Máx</th><th>Nota</th><th>🎱</th></tr>
       </thead>
       <tbody>
         <tr class="rgrp"><td colspan="8">⛰️ Serra, campo e represa — até ~1h15 de Curitiba</td></tr>
         <tr>
           <th>Toca da Família Coelho</th><td>Matulão / Tijucas do Sul, PR · chácara</td>
           <td>~1h</td>
-          <td class="hl"><span class="price-total">R$ 2.664 <span class="pill cheap">+ barata</span></span><span class="price-pp">R$ 333</span></td>
+          <td class="hl"><span class="price-total">R$ 3.419 <span class="pill cheap">+ barata</span></span><span class="price-pp">R$ 427</span></td>
           <td>5·7·3</td><td>11</td><td><span class="stars">★ 5,0</span> (16)</td><td>—</td>
         </tr>
         <tr>
           <th>Ecosítio</th><td>Antonina, PR · sítio / natureza</td>
           <td>~1h15</td>
-          <td class="hl"><span class="price-total">R$ 2.696 <span class="pill cheap">barata</span></span><span class="price-pp">R$ 337</span></td>
+          <td class="hl"><span class="price-total">R$ 3.548 <span class="pill cheap">barata</span></span><span class="price-pp">R$ 444</span></td>
           <td>5·10·3</td><td>8</td><td><span class="stars">★ 4,93</span> (169)</td><td>—</td>
         </tr>
         <tr>
           <th>WolfsHaus</th><td>Campina Grande do Sul, PR · sítio</td>
           <td><span class="pill near">~45 min</span></td>
-          <td class="hl"><span class="price-total">R$ 4.784</span><span class="price-pp">R$ 598</span></td>
+          <td class="hl"><span class="price-total">R$ 6.301</span><span class="price-pp">R$ 788</span></td>
           <td>5·6·2,5</td><td>12</td><td><span class="stars">★ 5,0</span> (33)</td><td><span class="yes">✓</span></td>
+        </tr>
+        <tr>
+          <th>Casa à Beira do Rio</th><td>Morretes, PR · rio / casa de campo <span class="pill new">nova</span></td>
+          <td>~1h</td>
+          <td class="hl"><span class="price-total">R$ 7.400</span><span class="price-pp">R$ 925</span></td>
+          <td>4·11·4</td><td>16</td><td><span class="stars">★ 4,94</span> (78)</td><td><span class="yes">✓</span></td>
         </tr>
         <tr>
           <th>NA_MORADA DO MARUMBI</th><td>Morretes, PR · casa de campo</td>
           <td>~1h</td>
-          <td class="hl"><span class="price-total">R$ 5.800</span><span class="price-pp">R$ 725</span></td>
+          <td class="hl"><span class="price-total">R$ 7.600</span><span class="price-pp">R$ 950</span></td>
           <td>4·6·3,5</td><td>8</td><td><span class="stars">★ 4,76</span> (157)</td><td>—</td>
         </tr>
         <tr>
           <th>Chácara Mil Estações</th><td>São José dos Pinhais, PR · chácara</td>
           <td><span class="pill near">~40 min</span></td>
-          <td class="hl"><span class="price-total">R$ 6.373</span><span class="price-pp">R$ 797</span></td>
+          <td class="hl"><span class="price-total">R$ 8.346</span><span class="price-pp">R$ 1.043</span></td>
           <td>5·8·3</td><td>12</td><td><span class="stars">★ 5,0</span> (13)</td><td><span class="yes">✓</span></td>
+        </tr>
+        <tr>
+          <th>Recanto Esmeralda</th><td>Campina Grande do Sul, PR · chácara <span class="pill new">nova</span></td>
+          <td><span class="pill near">~45 min</span></td>
+          <td class="hl"><span class="price-total">R$ 9.147</span><span class="price-pp">R$ 1.143</span></td>
+          <td>4·10·4</td><td>14</td><td><span class="stars">★ 4,97</span> (29)</td><td><span class="yes">✓</span></td>
+        </tr>
+        <tr>
+          <th>Cabana Lareira Lago</th><td>Tijucas do Sul, PR · lago <span class="pill new">nova</span></td>
+          <td>~50 min</td>
+          <td class="hl"><span class="price-total">R$ 10.041</span><span class="price-pp">R$ 1.255</span></td>
+          <td>4·4·3,5</td><td>9</td><td><span class="stars">★ 4,99</span> (102)</td><td>—</td>
         </tr>
         <tr>
           <th>Casa de Campo na Represa do Capivari</th><td>Quatro Barras, PR · represa</td>
           <td><span class="pill near">~40 min</span></td>
-          <td class="hl"><span class="price-total">R$ 10.999</span><span class="price-pp">R$ 1.375</span></td>
+          <td class="hl"><span class="price-total">R$ 14.465 <span class="pill exp">cara</span></span><span class="price-pp">R$ 1.808</span></td>
           <td>4·6·2,5</td><td>12</td><td><span class="stars">★ 4,97</span> (68)</td><td>—</td>
-        </tr>
-        <tr>
-          <th>Beira-mar de Morretes</th><td>Morretes, PR · serra / rio</td>
-          <td>~1h</td>
-          <td class="hl"><span class="price-total">R$ 17.097 <span class="pill exp">cara</span></span><span class="price-pp">R$ 2.137</span></td>
-          <td>5·7·5,5</td><td>11</td><td><span class="stars">★ 5,0</span> (23)</td><td>—</td>
         </tr>
 
         <tr class="rgrp"><td colspan="8">🌊 Lago de Rio dos Cedros — esportes aquáticos (~3h30)</td></tr>
         <tr>
           <th>Casa do Lago</th><td>Rio dos Cedros, SC · lago / fazenda</td>
           <td>~3h–3h30</td>
-          <td class="hl"><span class="price-total">R$ 9.598</span><span class="price-pp">R$ 1.200</span></td>
+          <td class="hl"><span class="price-total">R$ 12.739</span><span class="price-pp">R$ 1.592</span></td>
           <td>5·10·2,5</td><td>14</td><td><span class="stars">★ 4,88</span> (8)</td><td><span class="yes">✓</span></td>
         </tr>
       </tbody>
@@ -246,27 +260,27 @@
   </div>
 
   <!-- ==================== GRUPO A ==================== -->
-  <div class="group">⛰️ Serra, campo e represa <span class="cnt">7 casas · ~40 min a 1h15 de Curitiba</span></div>
-  <p class="group-sub">Tudo na região da Serra do Mar e arredores de Curitiba: estrada curta, sem pegar o engarrafamento do litoral na virada. Rio, cachoeira, represa e piscina.</p>
+  <div class="group">⛰️ Serra, campo e represa <span class="cnt">9 casas · ~40 min a 1h15 de Curitiba</span></div>
+  <p class="group-sub">Tudo na região da Serra do Mar e arredores de Curitiba: estrada curta, sem pegar o engarrafamento do litoral na virada. Rio, cachoeira, represa, lago e piscina.</p>
   <div class="cards">
 
     <article class="card">
       <div class="card-grid">
         <div class="gallery">
-          <img class="main" id="mA5" src="https://a0.muscache.com/im/pictures/miso/Hosting-40379016/original/5746a908-1496-4333-9ae7-26627b9c4734.jpeg?im_w=720" alt="Toca da Família Coelho, Tijucas do Sul">
+          <img class="main" id="mA1" src="https://a0.muscache.com/im/pictures/miso/Hosting-40379016/original/5746a908-1496-4333-9ae7-26627b9c4734.jpeg?im_w=720" alt="Toca da Família Coelho, Tijucas do Sul">
           <div class="thumbs">
-            <img src="https://a0.muscache.com/im/pictures/miso/Hosting-40379016/original/5746a908-1496-4333-9ae7-26627b9c4734.jpeg?im_w=240" onclick="sw('mA5',this)">
-            <img src="https://a0.muscache.com/im/pictures/hosting/Hosting-40379016/original/2a434397-93e0-49a1-9093-3476b774491e.jpeg?im_w=240" onclick="sw('mA5',this)">
-            <img src="https://a0.muscache.com/im/pictures/hosting/Hosting-40379016/original/34554d72-0aa7-4523-a91e-012b59b8b678.jpeg?im_w=240" onclick="sw('mA5',this)">
-            <img src="https://a0.muscache.com/im/pictures/hosting/Hosting-40379016/original/00c07d13-8a7d-4f24-b67c-9208551ff2b8.jpeg?im_w=240" onclick="sw('mA5',this)">
+            <img src="https://a0.muscache.com/im/pictures/miso/Hosting-40379016/original/5746a908-1496-4333-9ae7-26627b9c4734.jpeg?im_w=240" onclick="sw('mA1',this)">
+            <img src="https://a0.muscache.com/im/pictures/hosting/Hosting-40379016/original/2a434397-93e0-49a1-9093-3476b774491e.jpeg?im_w=240" onclick="sw('mA1',this)">
+            <img src="https://a0.muscache.com/im/pictures/hosting/Hosting-40379016/original/34554d72-0aa7-4523-a91e-012b59b8b678.jpeg?im_w=240" onclick="sw('mA1',this)">
+            <img src="https://a0.muscache.com/im/pictures/hosting/Hosting-40379016/original/00c07d13-8a7d-4f24-b67c-9208551ff2b8.jpeg?im_w=240" onclick="sw('mA1',this)">
           </div>
         </div>
         <div class="card-body">
           <span class="rank">💰 A MAIS BARATA · 5,0 (16)</span>
           <h3>Toca da Família Coelho</h3>
           <div class="loc">Matulão / Tijucas do Sul, PR <span class="scene">chácara + piscina</span></div>
-          <div class="priceline"><span class="big"><span class="price-total">R$ 2.664</span><span class="price-pp">R$ 333</span></span><span class="per"><span class="price-total">R$ 333/pessoa · a mais barata de todas</span><span class="price-pp">R$ 2.664 no total</span></span></div>
-          <div class="okbar">✅ Disponível para 30/12 → 02/01 · aceita pet. Nota máxima (5,0) e o menor preço da lista.</div>
+          <div class="priceline"><span class="big"><span class="price-total">R$ 3.419</span><span class="price-pp">R$ 427</span></span><span class="per"><span class="price-total">R$ 427/pessoa · a mais barata de todas</span><span class="price-pp">R$ 3.419 no total</span></span></div>
+          <div class="okbar">✅ Disponível para 30/12 → 03/01 (4 noites) · aceita pet. Nota máxima e o menor preço da lista — a 4ª noite custou só +R$ 755.</div>
           <div class="kv">
             <div><span class="k">Estrutura</span><span class="v">5 quartos · 7 camas · 3 banheiros</span></div>
             <div><span class="k">Capacidade</span><span class="v">até 11 (folga pro grupo)</span></div>
@@ -280,10 +294,10 @@
           <div class="h4">Na região</div>
           <p class="doing">Tijucas do Sul e Serra do Mar: Morro Araçatuba, represa do Vossoroca, cachoeiras e trilhas — e a Graciosa/Morretes a um pulo.</p>
           <div class="pc">
-            <div class="pros"><h5 style="color:var(--green)">Prós</h5><ul><li>A mais barata: R$ 333/pessoa</li><li>Nota 5,0 (16) · piscina · aceita pet</li><li>Cabe 11 — sobra espaço pros 8</li></ul></div>
+            <div class="pros"><h5 style="color:var(--green)">Prós</h5><ul><li>A mais barata: R$ 427/pessoa</li><li>Nota 5,0 (16) · piscina · aceita pet</li><li>Cabe 11 — sobra espaço pros 8</li></ul></div>
             <div class="cons"><h5 style="color:var(--red)">Contras</h5><ul><li>Menos avaliações que Ecosítio/Marumbi</li><li>Sem mesa de sinuca</li><li>Região mais isolada (leve tudo de casa)</li></ul></div>
           </div>
-          <a class="btn" href="https://www.airbnb.com.br/rooms/40379016?adults=8&check_in=2026-12-30&check_out=2027-01-02&pets=1" target="_blank" rel="noopener">Ver no Airbnb →</a>
+          <a class="btn" href="https://www.airbnb.com.br/rooms/40379016?adults=8&check_in=2026-12-30&check_out=2027-01-03&pets=1" target="_blank" rel="noopener">Ver no Airbnb →</a>
         </div>
       </div>
     </article>
@@ -291,21 +305,21 @@
     <article class="card">
       <div class="card-grid">
         <div class="gallery">
-          <img class="main" id="mA1" src="https://a0.muscache.com/im/pictures/a40cdc3a-9372-4f41-a99a-8117a4a22ef3.jpg?im_w=720" alt="Ecosítio em Antonina">
+          <img class="main" id="mA2" src="https://a0.muscache.com/im/pictures/a40cdc3a-9372-4f41-a99a-8117a4a22ef3.jpg?im_w=720" alt="Ecosítio em Antonina">
           <div class="thumbs">
-            <img src="https://a0.muscache.com/im/pictures/a40cdc3a-9372-4f41-a99a-8117a4a22ef3.jpg?im_w=240" onclick="sw('mA1',this)">
-            <img src="https://a0.muscache.com/im/pictures/086da8c6-b5bb-4d22-8551-b49a614df43e.jpg?im_w=240" onclick="sw('mA1',this)">
-            <img src="https://a0.muscache.com/im/pictures/16083dd2-7672-4ef2-8593-87b242bdbecd.jpg?im_w=240" onclick="sw('mA1',this)">
-            <img src="https://a0.muscache.com/im/pictures/c431c0b2-dc26-4b8d-98e6-4876870b3c9f.jpg?im_w=240" onclick="sw('mA1',this)">
-            <img src="https://a0.muscache.com/im/pictures/d6ff4523-8ec4-421f-84e9-6e288b415f6a.jpg?im_w=240" onclick="sw('mA1',this)">
+            <img src="https://a0.muscache.com/im/pictures/a40cdc3a-9372-4f41-a99a-8117a4a22ef3.jpg?im_w=240" onclick="sw('mA2',this)">
+            <img src="https://a0.muscache.com/im/pictures/086da8c6-b5bb-4d22-8551-b49a614df43e.jpg?im_w=240" onclick="sw('mA2',this)">
+            <img src="https://a0.muscache.com/im/pictures/16083dd2-7672-4ef2-8593-87b242bdbecd.jpg?im_w=240" onclick="sw('mA2',this)">
+            <img src="https://a0.muscache.com/im/pictures/c431c0b2-dc26-4b8d-98e6-4876870b3c9f.jpg?im_w=240" onclick="sw('mA2',this)">
+            <img src="https://a0.muscache.com/im/pictures/d6ff4523-8ec4-421f-84e9-6e288b415f6a.jpg?im_w=240" onclick="sw('mA2',this)">
           </div>
         </div>
         <div class="card-body">
-          <span class="rank">💰 A MAIS BARATA · 169 AVALIAÇÕES</span>
+          <span class="rank">👍 169 AVALIAÇÕES · 4,93</span>
           <h3>Ecosítio — você desacelera e se reconecta</h3>
           <div class="loc">Antonina, PR <span class="scene">sítio / natureza</span></div>
-          <div class="priceline"><span class="big"><span class="price-total">R$ 2.696</span><span class="price-pp">R$ 337</span></span><span class="per"><span class="price-total">R$ 337/pessoa · de longe a mais barata</span><span class="price-pp">R$ 2.696 no total</span></span></div>
-          <div class="okbar">✅ Disponível para 30/12 → 02/01 · aceita pet · cancelamento grátis até 29/12. O Airbnb marca como "costuma estar sempre reservado".</div>
+          <div class="priceline"><span class="big"><span class="price-total">R$ 3.548</span><span class="price-pp">R$ 444</span></span><span class="per"><span class="price-total">R$ 444/pessoa</span><span class="price-pp">R$ 3.548 no total</span></span></div>
+          <div class="okbar">✅ Disponível para 30/12 → 03/01 (4 noites) · aceita pet. O Airbnb marca como "costuma estar sempre reservado".</div>
           <div class="kv">
             <div><span class="k">Estrutura</span><span class="v">5 quartos · 10 camas · 3 banheiros</span></div>
             <div><span class="k">Capacidade</span><span class="v">até 8 (exato pro grupo)</span></div>
@@ -319,10 +333,10 @@
           <div class="h4">Na região</div>
           <p class="doing">Antonina e Morretes: centro histórico, barreado, Estrada da Graciosa, cachoeiras e o trem da Serra do Mar.</p>
           <div class="pc">
-            <div class="pros"><h5 style="color:var(--green)">Prós</h5><ul><li>Absurdamente barata: R$ 337/pessoa</li><li>4,93 com 169 avaliações — a mais provada</li><li>10 camas e piscina · aceita pet</li></ul></div>
+            <div class="pros"><h5 style="color:var(--green)">Prós</h5><ul><li>Baratíssima: R$ 444/pessoa</li><li>4,93 com 169 avaliações — a mais provada</li><li>10 camas e piscina · aceita pet</li></ul></div>
             <div class="cons"><h5 style="color:var(--red)">Contras</h5><ul><li>Capacidade máxima é exatamente 8 (sem folga)</li><li>Perfil rústico/ecológico — não é casa de luxo</li><li>Sem mesa de sinuca</li></ul></div>
           </div>
-          <a class="btn" href="https://www.airbnb.com.br/rooms/32414763?adults=8&check_in=2026-12-30&check_out=2027-01-02&pets=1" target="_blank" rel="noopener">Ver no Airbnb →</a>
+          <a class="btn" href="https://www.airbnb.com.br/rooms/32414763?adults=8&check_in=2026-12-30&check_out=2027-01-03&pets=1" target="_blank" rel="noopener">Ver no Airbnb →</a>
         </div>
       </div>
     </article>
@@ -330,21 +344,21 @@
     <article class="card">
       <div class="card-grid">
         <div class="gallery">
-          <img class="main" id="mA6" src="https://a0.muscache.com/im/pictures/hosting/Hosting-680369206267399102/original/49f24369-94db-4235-89eb-296dc7eb8db9.jpeg?im_w=720" alt="WolfsHaus, Campina Grande do Sul">
+          <img class="main" id="mA3" src="https://a0.muscache.com/im/pictures/hosting/Hosting-680369206267399102/original/49f24369-94db-4235-89eb-296dc7eb8db9.jpeg?im_w=720" alt="WolfsHaus, Campina Grande do Sul">
           <div class="thumbs">
-            <img src="https://a0.muscache.com/im/pictures/hosting/Hosting-680369206267399102/original/49f24369-94db-4235-89eb-296dc7eb8db9.jpeg?im_w=240" onclick="sw('mA6',this)">
-            <img src="https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6NjgwMzY5MjA2MjY3Mzk5MTAy/original/0e23a704-3ebe-45c4-9c42-23f83de91125.jpeg?im_w=240" onclick="sw('mA6',this)">
-            <img src="https://a0.muscache.com/im/pictures/hosting/Hosting-680369206267399102/original/3db5be90-cb6c-4bfa-916a-ba11078995cc.jpeg?im_w=240" onclick="sw('mA6',this)">
-            <img src="https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6NjgwMzY5MjA2MjY3Mzk5MTAy/original/c157d7d1-f0ca-4644-ae3c-c779337cca3c.jpeg?im_w=240" onclick="sw('mA6',this)">
-            <img src="https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6NjgwMzY5MjA2MjY3Mzk5MTAy/original/4c8430b2-5ff7-4df2-8600-f4121f07d110.jpeg?im_w=240" onclick="sw('mA6',this)">
+            <img src="https://a0.muscache.com/im/pictures/hosting/Hosting-680369206267399102/original/49f24369-94db-4235-89eb-296dc7eb8db9.jpeg?im_w=240" onclick="sw('mA3',this)">
+            <img src="https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6NjgwMzY5MjA2MjY3Mzk5MTAy/original/0e23a704-3ebe-45c4-9c42-23f83de91125.jpeg?im_w=240" onclick="sw('mA3',this)">
+            <img src="https://a0.muscache.com/im/pictures/hosting/Hosting-680369206267399102/original/3db5be90-cb6c-4bfa-916a-ba11078995cc.jpeg?im_w=240" onclick="sw('mA3',this)">
+            <img src="https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6NjgwMzY5MjA2MjY3Mzk5MTAy/original/c157d7d1-f0ca-4644-ae3c-c779337cca3c.jpeg?im_w=240" onclick="sw('mA3',this)">
+            <img src="https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6NjgwMzY5MjA2MjY3Mzk5MTAy/original/4c8430b2-5ff7-4df2-8600-f4121f07d110.jpeg?im_w=240" onclick="sw('mA3',this)">
           </div>
         </div>
         <div class="card-body">
           <span class="rank alt">🎱 SINUCA A 45 MIN · 5,0 (33)</span>
           <h3>WolfsHaus — viver em um sítio é renovador</h3>
           <div class="loc">Campina Grande do Sul, PR <span class="scene">sítio + piscina</span> <span class="scene sinuca">🎱 sinuca</span></div>
-          <div class="priceline"><span class="big"><span class="price-total">R$ 4.784</span><span class="price-pp">R$ 598</span></span><span class="per"><span class="price-total">R$ 598/pessoa</span><span class="price-pp">R$ 4.784 no total</span></span></div>
-          <div class="okbar">✅ Disponível para 30/12 → 02/01 · aceita pet · cancelamento grátis até 25/12. <b>Resolve o dilema da sinuca:</b> tem mesa de bilhar e fica a ~45 min, não a 3h30.</div>
+          <div class="priceline"><span class="big"><span class="price-total">R$ 6.301</span><span class="price-pp">R$ 788</span></span><span class="per"><span class="price-total">R$ 788/pessoa</span><span class="price-pp">R$ 6.301 no total</span></span></div>
+          <div class="okbar">✅ Disponível para 30/12 → 03/01 (4 noites) · aceita pet. A opção de sinuca mais barata e a ~45 min de Curitiba.</div>
           <div class="kv">
             <div><span class="k">Estrutura</span><span class="v">5 quartos · 6 camas · 2,5 banheiros</span></div>
             <div><span class="k">Capacidade</span><span class="v">até 12 (folga pro grupo)</span></div>
@@ -358,10 +372,10 @@
           <div class="h4">Na região</div>
           <p class="doing">Campina Grande do Sul, na entrada da Serra do Mar: Estrada da Graciosa, cachoeiras e o Pico Paraná — tudo pertinho de Curitiba.</p>
           <div class="pc">
-            <div class="pros"><h5 style="color:var(--green)">Prós</h5><ul><li>Sinuca 🎱 a só ~45 min de Curitiba</li><li>Nota 5,0 (33) · piscina · aceita pet</li><li>Barata: R$ 598/pessoa</li></ul></div>
+            <div class="pros"><h5 style="color:var(--green)">Prós</h5><ul><li>Sinuca 🎱 mais barata da lista</li><li>Nota 5,0 (33) · piscina · aceita pet · ~45 min</li></ul></div>
             <div class="cons"><h5 style="color:var(--red)">Contras</h5><ul><li>Só 6 camas e 2,5 banheiros para 8</li><li>Sem lago/represa (só piscina)</li></ul></div>
           </div>
-          <a class="btn" href="https://www.airbnb.com.br/rooms/680369206267399102?adults=8&check_in=2026-12-30&check_out=2027-01-02&pets=1" target="_blank" rel="noopener">Ver no Airbnb →</a>
+          <a class="btn" href="https://www.airbnb.com.br/rooms/680369206267399102?adults=8&check_in=2026-12-30&check_out=2027-01-03&pets=1" target="_blank" rel="noopener">Ver no Airbnb →</a>
         </div>
       </div>
     </article>
@@ -369,21 +383,99 @@
     <article class="card">
       <div class="card-grid">
         <div class="gallery">
-          <img class="main" id="mA7" src="https://a0.muscache.com/im/pictures/hosting/Hosting-1148579545058990158/original/a4df5bdf-cd08-4a23-8406-7c46845fb15f.jpeg?im_w=720" alt="Chácara Mil Estações, São José dos Pinhais">
+          <img class="main" id="mA4" src="https://a0.muscache.com/im/pictures/airflow/Hosting-48119271/original/910e5996-41e7-446c-8d86-858a23885ca9.jpg?im_w=720" alt="Casa à Beira do Rio em Morretes">
           <div class="thumbs">
-            <img src="https://a0.muscache.com/im/pictures/hosting/Hosting-1148579545058990158/original/a4df5bdf-cd08-4a23-8406-7c46845fb15f.jpeg?im_w=240" onclick="sw('mA7',this)">
-            <img src="https://a0.muscache.com/im/pictures/hosting/Hosting-1148579545058990158/original/ed5d4df3-8920-447b-83ae-d12cbf8dc90b.jpeg?im_w=240" onclick="sw('mA7',this)">
-            <img src="https://a0.muscache.com/im/pictures/hosting/Hosting-1148579545058990158/original/92c32e1a-b321-4e33-9955-cba6014b89d2.jpeg?im_w=240" onclick="sw('mA7',this)">
-            <img src="https://a0.muscache.com/im/pictures/hosting/Hosting-1148579545058990158/original/f21a647f-1180-4060-a82e-d1a0953f76bf.jpeg?im_w=240" onclick="sw('mA7',this)">
-            <img src="https://a0.muscache.com/im/pictures/hosting/Hosting-1148579545058990158/original/46fdd80f-688d-4214-bcb9-01b7eb29b4cb.jpeg?im_w=240" onclick="sw('mA7',this)">
+            <img src="https://a0.muscache.com/im/pictures/airflow/Hosting-48119271/original/910e5996-41e7-446c-8d86-858a23885ca9.jpg?im_w=240" onclick="sw('mA4',this)">
+            <img src="https://a0.muscache.com/im/pictures/airflow/Hosting-48119271/original/ca8a883b-a1e1-406c-940d-4f8f7bd3d643.jpg?im_w=240" onclick="sw('mA4',this)">
+            <img src="https://a0.muscache.com/im/pictures/airflow/Hosting-48119271/original/5caed84c-199a-4c71-a4d8-412bd672e7f0.jpg?im_w=240" onclick="sw('mA4',this)">
+            <img src="https://a0.muscache.com/im/pictures/airflow/Hosting-48119271/original/c7273f40-202c-4537-8870-b1f1c666eb0b.jpg?im_w=240" onclick="sw('mA4',this)">
+            <img src="https://a0.muscache.com/im/pictures/airflow/Hosting-48119271/original/6c93ef89-e598-4ad8-bf15-59547b06fb6d.jpg?im_w=240" onclick="sw('mA4',this)">
+          </div>
+        </div>
+        <div class="card-body">
+          <span class="rank">🏆 MELHOR CONJUNTO · SÓ COM 4 NOITES</span>
+          <h3>Casa à Beira do Rio em Morretes</h3>
+          <div class="loc">Morretes, PR <span class="scene">rio + piscina</span> <span class="scene sinuca">🎱 sinuca</span></div>
+          <div class="priceline"><span class="big"><span class="price-total">R$ 7.400</span><span class="price-pp">R$ 925</span></span><span class="per"><span class="price-total">R$ 925/pessoa</span><span class="price-pp">R$ 7.400 no total</span></span></div>
+          <div class="okbar">✅ Disponível para 30/12 → 03/01 · aceita pet · cancelamento grátis até 25/12. <b>Só existe com 4 noites:</b> em 3 noites o anúncio aparecia indisponível.</div>
+          <div class="kv">
+            <div><span class="k">Estrutura</span><span class="v">4 quartos · 11 camas · 4 banheiros</span></div>
+            <div><span class="k">Capacidade</span><span class="v">até 16 (muita folga)</span></div>
+            <div><span class="k">Distância</span><span class="v">~1h de Curitiba</span></div>
+            <div><span class="k">Avaliações</span><span class="v">★ 4,94 · 78</span></div>
+            <div><span class="k">Pet</span><span class="v">permitido ✓</span></div>
+            <div><span class="k">Lazer</span><span class="v">sinuca 🎱 · piscina · churrasqueira · rio</span></div>
+          </div>
+          <div class="h4">Na casa</div>
+          <p class="doing">Casa à beira do rio com <b>mesa de sinuca</b>, piscina e churrasqueira. <b>11 camas e 4 banheiros</b> — a melhor estrutura da lista para o preço.</p>
+          <div class="h4">Na região</div>
+          <p class="doing">Morretes: barreado, trem da Serra do Mar, Estrada da Graciosa, cachoeiras e o Pico Marumbi.</p>
+          <div class="pc">
+            <div class="pros"><h5 style="color:var(--green)">Prós</h5><ul><li>Melhor custo-benefício: sinuca + piscina + rio por R$ 925/pessoa</li><li>11 camas e 4 banheiros — ninguém disputa banheiro</li><li>4,94 com 78 avaliações · ~1h de Curitiba</li></ul></div>
+            <div class="cons"><h5 style="color:var(--red)">Contras</h5><ul><li>Exige as 4 noites (não abre para 3)</li><li>Só 4 quartos para 8 (mas 11 camas)</li></ul></div>
+          </div>
+          <a class="btn" href="https://www.airbnb.com.br/rooms/48119271?adults=8&check_in=2026-12-30&check_out=2027-01-03&pets=1" target="_blank" rel="noopener">Ver no Airbnb →</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="card-grid">
+        <div class="gallery">
+          <img class="main" id="mA5" src="https://a0.muscache.com/im/pictures/e4a7d54a-b08d-425d-b798-9bb2ad03d4dd.jpg?im_w=720" alt="NA_MORADA DO MARUMBI, Morretes">
+          <div class="thumbs">
+            <img src="https://a0.muscache.com/im/pictures/e4a7d54a-b08d-425d-b798-9bb2ad03d4dd.jpg?im_w=240" onclick="sw('mA5',this)">
+            <img src="https://a0.muscache.com/im/pictures/e87cf683-4765-4b7f-926b-8605c54d2552.jpg?im_w=240" onclick="sw('mA5',this)">
+            <img src="https://a0.muscache.com/im/pictures/574dc0bc-23fa-48ff-ac92-9a0778312651.jpg?im_w=240" onclick="sw('mA5',this)">
+            <img src="https://a0.muscache.com/im/pictures/5456a9aa-ffd1-4bf6-a41f-b2e97a4efb54.jpg?im_w=240" onclick="sw('mA5',this)">
+            <img src="https://a0.muscache.com/im/pictures/93108013/f78a83e5_original.jpg?im_w=240" onclick="sw('mA5',this)">
+          </div>
+        </div>
+        <div class="card-body">
+          <span class="rank alt">157 AVALIAÇÕES · PISCINA</span>
+          <h3>NA_MORADA DO MARUMBI</h3>
+          <div class="loc">Morretes, PR <span class="scene">casa de campo + piscina</span></div>
+          <div class="priceline"><span class="big"><span class="price-total">R$ 7.600</span><span class="price-pp">R$ 950</span></span><span class="per"><span class="price-total">R$ 950/pessoa</span><span class="price-pp">R$ 7.600 no total</span></span></div>
+          <div class="okbar">✅ Disponível para 30/12 → 03/01 (4 noites) · aceita pet · cancelamento grátis até 30/11 (o prazo mais folgado da lista).</div>
+          <div class="kv">
+            <div><span class="k">Estrutura</span><span class="v">4 quartos · 6 camas · 3,5 banheiros</span></div>
+            <div><span class="k">Capacidade</span><span class="v">até 8 (exato pro grupo)</span></div>
+            <div><span class="k">Distância</span><span class="v">~1h de Curitiba</span></div>
+            <div><span class="k">Avaliações</span><span class="v">★ 4,76 · 157</span></div>
+            <div><span class="k">Pet</span><span class="v">permitido ✓</span></div>
+            <div><span class="k">Água</span><span class="v">piscina</span></div>
+          </div>
+          <div class="h4">Na casa</div>
+          <p class="doing">Casa de campo aos pés do Marumbi, com piscina, área verde ampla e 3,5 banheiros — bom equilíbrio de conforto e preço.</p>
+          <div class="h4">Na região</div>
+          <p class="doing">Morretes: barreado, trem da Serra do Mar, Estrada da Graciosa, cachoeiras e o Pico Marumbi.</p>
+          <div class="pc">
+            <div class="pros"><h5 style="color:var(--green)">Prós</h5><ul><li>157 avaliações — bem rodada</li><li>3,5 banheiros para 8 · piscina · pet</li><li>Cancelamento grátis até 30/11</li></ul></div>
+            <div class="cons"><h5 style="color:var(--red)">Contras</h5><ul><li>Nota 4,76 — a mais baixa da lista</li><li>Capacidade máxima é exatamente 8</li><li>Sem mesa de sinuca · custa quase o mesmo que a Beira do Rio</li></ul></div>
+          </div>
+          <a class="btn" href="https://www.airbnb.com.br/rooms/7123872?adults=8&check_in=2026-12-30&check_out=2027-01-03&pets=1" target="_blank" rel="noopener">Ver no Airbnb →</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="card-grid">
+        <div class="gallery">
+          <img class="main" id="mA6" src="https://a0.muscache.com/im/pictures/hosting/Hosting-1148579545058990158/original/a4df5bdf-cd08-4a23-8406-7c46845fb15f.jpeg?im_w=720" alt="Chácara Mil Estações, São José dos Pinhais">
+          <div class="thumbs">
+            <img src="https://a0.muscache.com/im/pictures/hosting/Hosting-1148579545058990158/original/a4df5bdf-cd08-4a23-8406-7c46845fb15f.jpeg?im_w=240" onclick="sw('mA6',this)">
+            <img src="https://a0.muscache.com/im/pictures/hosting/Hosting-1148579545058990158/original/ed5d4df3-8920-447b-83ae-d12cbf8dc90b.jpeg?im_w=240" onclick="sw('mA6',this)">
+            <img src="https://a0.muscache.com/im/pictures/hosting/Hosting-1148579545058990158/original/92c32e1a-b321-4e33-9955-cba6014b89d2.jpeg?im_w=240" onclick="sw('mA6',this)">
+            <img src="https://a0.muscache.com/im/pictures/hosting/Hosting-1148579545058990158/original/f21a647f-1180-4060-a82e-d1a0953f76bf.jpeg?im_w=240" onclick="sw('mA6',this)">
+            <img src="https://a0.muscache.com/im/pictures/hosting/Hosting-1148579545058990158/original/46fdd80f-688d-4214-bcb9-01b7eb29b4cb.jpeg?im_w=240" onclick="sw('mA6',this)">
           </div>
         </div>
         <div class="card-body">
           <span class="rank alt">🎱 SINUCA + PING PONG · A 40 MIN</span>
           <h3>Chácara Mil Estações</h3>
           <div class="loc">São José dos Pinhais, PR <span class="scene">chácara + piscina</span> <span class="scene sinuca">🎱 sinuca</span></div>
-          <div class="priceline"><span class="big"><span class="price-total">R$ 6.373</span><span class="price-pp">R$ 797</span></span><span class="per"><span class="price-total">R$ 797/pessoa</span><span class="price-pp">R$ 6.373 no total</span></span></div>
-          <div class="okbar">✅ Disponível para 30/12 → 02/01 · aceita pet. O Airbnb marca como "costuma estar sempre reservado" — se agradar, não deixe pra depois.</div>
+          <div class="priceline"><span class="big"><span class="price-total">R$ 8.346</span><span class="price-pp">R$ 1.043</span></span><span class="per"><span class="price-total">R$ 1.043/pessoa</span><span class="price-pp">R$ 8.346 no total</span></span></div>
+          <div class="okbar">✅ Disponível para 30/12 → 03/01 (4 noites) · aceita pet. Marcada como "costuma estar sempre reservado" — se agradar, não deixe pra depois.</div>
           <div class="kv">
             <div><span class="k">Estrutura</span><span class="v">5 quartos · 8 camas · 3 banheiros</span></div>
             <div><span class="k">Capacidade</span><span class="v">até 12 (folga pro grupo)</span></div>
@@ -400,7 +492,7 @@
             <div class="pros"><h5 style="color:var(--green)">Prós</h5><ul><li>Nota 5,0 (13) e a mais perto (~40 min)</li><li>Melhor pacote de lazer: sinuca + ping pong + carteado</li><li>8 camas e 3 banheiros · aceita pet</li></ul></div>
             <div class="cons"><h5 style="color:var(--red)">Contras</h5><ul><li>Poucas avaliações ainda (13)</li><li>Perfil "equipes de trabalho" — menos rústico</li><li>Sem lago/represa</li></ul></div>
           </div>
-          <a class="btn" href="https://www.airbnb.com.br/rooms/1148579545058990158?adults=8&check_in=2026-12-30&check_out=2027-01-02&pets=1" target="_blank" rel="noopener">Ver no Airbnb →</a>
+          <a class="btn" href="https://www.airbnb.com.br/rooms/1148579545058990158?adults=8&check_in=2026-12-30&check_out=2027-01-03&pets=1" target="_blank" rel="noopener">Ver no Airbnb →</a>
         </div>
       </div>
     </article>
@@ -408,116 +500,116 @@
     <article class="card">
       <div class="card-grid">
         <div class="gallery">
-          <img class="main" id="mA2" src="https://a0.muscache.com/im/pictures/hosting/Hosting-553007611001631929/original/21eeac3e-403a-477f-b31c-1b38503b32f8.jpeg?im_w=720" alt="Casa de Campo na Represa do Capivari">
+          <img class="main" id="mA7" src="https://a0.muscache.com/im/pictures/miso/Hosting-1070871561278728172/original/13e01520-3929-4b08-8b73-c4cc62f1639f.jpeg?im_w=720" alt="Recanto Esmeralda, Campina Grande do Sul">
           <div class="thumbs">
-            <img src="https://a0.muscache.com/im/pictures/hosting/Hosting-553007611001631929/original/21eeac3e-403a-477f-b31c-1b38503b32f8.jpeg?im_w=240" onclick="sw('mA2',this)">
-            <img src="https://a0.muscache.com/im/pictures/hosting/Hosting-553007611001631929/original/4fda49c3-420f-48d9-9998-fa1f61026527.jpeg?im_w=240" onclick="sw('mA2',this)">
-            <img src="https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6NTUzMDA3NjExMDAxNjMxOTI5/original/6edf13dc-b631-4dda-aec6-e4882ec42670.jpeg?im_w=240" onclick="sw('mA2',this)">
-            <img src="https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6NTUzMDA3NjExMDAxNjMxOTI5/original/438eaacc-91d6-4cd7-b3e7-7920d632b240.jpeg?im_w=240" onclick="sw('mA2',this)">
-            <img src="https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6NTUzMDA3NjExMDAxNjMxOTI5/original/59b02e18-d715-41eb-b4bc-e8cd59aee47b.jpeg?im_w=240" onclick="sw('mA2',this)">
+            <img src="https://a0.muscache.com/im/pictures/miso/Hosting-1070871561278728172/original/13e01520-3929-4b08-8b73-c4cc62f1639f.jpeg?im_w=240" onclick="sw('mA7',this)">
+            <img src="https://a0.muscache.com/im/pictures/miso/Hosting-1070871561278728172/original/2722549d-3a92-4b18-be15-76a85c234ecc.jpeg?im_w=240" onclick="sw('mA7',this)">
+            <img src="https://a0.muscache.com/im/pictures/miso/Hosting-1070871561278728172/original/47c82fc5-49db-4e05-9100-4f24b47f4614.jpeg?im_w=240" onclick="sw('mA7',this)">
+            <img src="https://a0.muscache.com/im/pictures/miso/Hosting-1070871561278728172/original/8743bc28-549b-4d99-9d2d-8c15c34d6021.jpeg?im_w=240" onclick="sw('mA7',this)">
+            <img src="https://a0.muscache.com/im/pictures/miso/Hosting-1070871561278728172/original/0103efc8-57fd-4197-be8a-18e404e37a8b.jpeg?im_w=240" onclick="sw('mA7',this)">
           </div>
         </div>
         <div class="card-body">
-          <span class="rank">📍 A MAIS PERTO · 🏞️ REPRESA</span>
+          <span class="rank">🎱 SINUCA · SÓ COM 4 NOITES</span>
+          <h3>Recanto Esmeralda</h3>
+          <div class="loc">Campina Grande do Sul, PR <span class="scene">chácara + piscina</span> <span class="scene sinuca">🎱 sinuca</span></div>
+          <div class="priceline"><span class="big"><span class="price-total">R$ 9.147</span><span class="price-pp">R$ 1.143</span></span><span class="per"><span class="price-total">R$ 1.143/pessoa</span><span class="price-pp">R$ 9.147 no total</span></span></div>
+          <div class="okbar">✅ Disponível para 30/12 → 03/01 · aceita pet · cancelamento grátis até 25/12. <b>Exigia estadia mínima de 4 dias</b> — só entrou na lista por causa da noite extra.</div>
+          <div class="kv">
+            <div><span class="k">Estrutura</span><span class="v">4 quartos · 10 camas · 4 banheiros</span></div>
+            <div><span class="k">Capacidade</span><span class="v">até 14 (muita folga)</span></div>
+            <div><span class="k">Distância</span><span class="v">~45 min de Curitiba</span></div>
+            <div><span class="k">Avaliações</span><span class="v">★ 4,97 · 29</span></div>
+            <div><span class="k">Pet</span><span class="v">permitido ✓</span></div>
+            <div><span class="k">Lazer</span><span class="v">sinuca 🎱 · piscina</span></div>
+          </div>
+          <div class="h4">Na casa</div>
+          <p class="doing">Chácara com <b>mesa de sinuca</b>, piscina, 10 camas e 4 banheiros. Nota 4,97 em 29 avaliações, a ~45 min de Curitiba.</p>
+          <div class="h4">Na região</div>
+          <p class="doing">Campina Grande do Sul, entrada da Serra do Mar: Graciosa, cachoeiras e o Pico Paraná.</p>
+          <div class="pc">
+            <div class="pros"><h5 style="color:var(--green)">Prós</h5><ul><li>Nota altíssima: 4,97 (29)</li><li>Sinuca + piscina + 4 banheiros e 10 camas</li><li>Pertinho (~45 min)</li></ul></div>
+            <div class="cons"><h5 style="color:var(--red)">Contras</h5><ul><li>Exige as 4 noites (mín. 4 dias)</li><li>Mais cara que a Beira do Rio, com estrutura parecida</li></ul></div>
+          </div>
+          <a class="btn" href="https://www.airbnb.com.br/rooms/1070871561278728172?adults=8&check_in=2026-12-30&check_out=2027-01-03&pets=1" target="_blank" rel="noopener">Ver no Airbnb →</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="card-grid">
+        <div class="gallery">
+          <img class="main" id="mA8" src="https://a0.muscache.com/im/pictures/miso/Hosting-52320422/original/df745c39-752c-4bab-ab8a-06c49e49982a.jpeg?im_w=720" alt="Cabana com lareira e lago, Tijucas do Sul">
+          <div class="thumbs">
+            <img src="https://a0.muscache.com/im/pictures/miso/Hosting-52320422/original/df745c39-752c-4bab-ab8a-06c49e49982a.jpeg?im_w=240" onclick="sw('mA8',this)">
+            <img src="https://a0.muscache.com/im/pictures/miso/Hosting-52320422/original/9597b925-d881-4e28-bf83-edbff4cc7c1f.jpeg?im_w=240" onclick="sw('mA8',this)">
+            <img src="https://a0.muscache.com/im/pictures/miso/Hosting-52320422/original/f4190947-f533-49ee-9395-55307ec7927c.jpeg?im_w=240" onclick="sw('mA8',this)">
+            <img src="https://a0.muscache.com/im/pictures/miso/Hosting-52320422/original/a781a77b-4123-47a2-81a3-cc932b75988a.jpeg?im_w=240" onclick="sw('mA8',this)">
+            <img src="https://a0.muscache.com/im/pictures/miso/Hosting-52320422/original/ec70622a-3cfc-414d-ad91-2580843314c9.jpeg?im_w=240" onclick="sw('mA8',this)">
+          </div>
+        </div>
+        <div class="card-body">
+          <span class="rank">⭐ MELHOR NOTA · 4,99 (102)</span>
+          <h3>Cabana — Lareira, Lago e Pet</h3>
+          <div class="loc">Tijucas do Sul, PR <span class="scene">lago + piscina + lareira</span></div>
+          <div class="priceline"><span class="big"><span class="price-total">R$ 10.041</span><span class="price-pp">R$ 1.255</span></span><span class="per"><span class="price-total">R$ 1.255/pessoa · de R$ 10.974 com desconto</span><span class="price-pp">R$ 10.041 no total</span></span></div>
+          <div class="okbar">✅ Disponível para 30/12 → 03/01 · aceita pet · cancelamento grátis até 25/12. <b>Só apareceu na busca de 4 noites</b> — e é a melhor nota de tudo que encontramos.</div>
+          <div class="kv">
+            <div><span class="k">Estrutura</span><span class="v">4 quartos · 4 camas · 3,5 banheiros</span></div>
+            <div><span class="k">Capacidade</span><span class="v">até 9 (camas casal)</span></div>
+            <div><span class="k">Distância</span><span class="v">~50 min de Curitiba</span></div>
+            <div><span class="k">Avaliações</span><span class="v">★ 4,99 · 102 (a melhor)</span></div>
+            <div><span class="k">Pet</span><span class="v">permitido ✓ (está no título)</span></div>
+            <div><span class="k">Água</span><span class="v">lago + piscina</span></div>
+          </div>
+          <div class="h4">Na casa</div>
+          <p class="doing">Cabana com <b>lareira</b>, lago na propriedade e piscina. Nota 4,99 em 102 avaliações — a mais bem avaliada de toda a busca.</p>
+          <div class="h4">Na região</div>
+          <p class="doing">Tijucas do Sul: represa do Vossoroca, Morro Araçatuba, cachoeiras e trilhas — a 50 min de Curitiba.</p>
+          <div class="pc">
+            <div class="pros"><h5 style="color:var(--green)">Prós</h5><ul><li>Nota 4,99 com 102 avaliações — quase impecável</li><li>Lago + piscina + lareira · pet no título</li><li>Está com desconto (de R$ 10.974)</li></ul></div>
+            <div class="cons"><h5 style="color:var(--red)">Contras</h5><ul><li><b>Só 4 camas</b> — serve 8 se forem 4 casais</li><li>Cara por pessoa (R$ 1.255) · sem sinuca</li></ul></div>
+          </div>
+          <a class="btn" href="https://www.airbnb.com.br/rooms/52320422?adults=8&check_in=2026-12-30&check_out=2027-01-03&pets=1" target="_blank" rel="noopener">Ver no Airbnb →</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="card-grid">
+        <div class="gallery">
+          <img class="main" id="mA9" src="https://a0.muscache.com/im/pictures/hosting/Hosting-553007611001631929/original/21eeac3e-403a-477f-b31c-1b38503b32f8.jpeg?im_w=720" alt="Casa de Campo na Represa do Capivari">
+          <div class="thumbs">
+            <img src="https://a0.muscache.com/im/pictures/hosting/Hosting-553007611001631929/original/21eeac3e-403a-477f-b31c-1b38503b32f8.jpeg?im_w=240" onclick="sw('mA9',this)">
+            <img src="https://a0.muscache.com/im/pictures/hosting/Hosting-553007611001631929/original/4fda49c3-420f-48d9-9998-fa1f61026527.jpeg?im_w=240" onclick="sw('mA9',this)">
+            <img src="https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6NTUzMDA3NjExMDAxNjMxOTI5/original/6edf13dc-b631-4dda-aec6-e4882ec42670.jpeg?im_w=240" onclick="sw('mA9',this)">
+            <img src="https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6NTUzMDA3NjExMDAxNjMxOTI5/original/438eaacc-91d6-4cd7-b3e7-7920d632b240.jpeg?im_w=240" onclick="sw('mA9',this)">
+            <img src="https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6NTUzMDA3NjExMDAxNjMxOTI5/original/59b02e18-d715-41eb-b4bc-e8cd59aee47b.jpeg?im_w=240" onclick="sw('mA9',this)">
+          </div>
+        </div>
+        <div class="card-body">
+          <span class="rank">🏞️ REPRESA · A MAIS PERTO</span>
           <h3>Linda Casa de Campo na Represa do Capivari</h3>
           <div class="loc">Quatro Barras, PR <span class="scene">represa + piscina</span></div>
-          <div class="priceline"><span class="big"><span class="price-total">R$ 10.999</span><span class="price-pp">R$ 1.375</span></span><span class="per"><span class="price-total">R$ 1.375/pessoa</span><span class="price-pp">R$ 10.999 no total</span></span></div>
-          <div class="okbar">✅ Disponível para 30/12 → 02/01 · aceita pet · cancelamento grátis até 29/12. A ~40 min de Curitiba — a viagem mais curta da lista.</div>
+          <div class="priceline"><span class="big"><span class="price-total">R$ 14.465</span><span class="price-pp">R$ 1.808</span></span><span class="per"><span class="price-total">R$ 1.808/pessoa · a mais cara</span><span class="price-pp">R$ 14.465 no total</span></span></div>
+          <div class="okbar">✅ Disponível para 30/12 → 03/01 (4 noites) · aceita pet · cancelamento grátis até 29/12. A ~40 min de Curitiba.</div>
           <div class="kv">
             <div><span class="k">Estrutura</span><span class="v">4 quartos · 6 camas · 2,5 banheiros</span></div>
-            <div><span class="k">Capacidade</span><span class="v">até 12 (sobra espaço)</span></div>
+            <div><span class="k">Capacidade</span><span class="v">até 12</span></div>
             <div><span class="k">Distância</span><span class="v">~40 min de Curitiba</span></div>
-            <div><span class="k">Avaliações</span><span class="v">★ 4,97 · 68 (a melhor média)</span></div>
+            <div><span class="k">Avaliações</span><span class="v">★ 4,97 · 68</span></div>
             <div><span class="k">Pet</span><span class="v">permitido ✓</span></div>
             <div><span class="k">Água</span><span class="v">represa do Capivari + piscina</span></div>
           </div>
           <div class="h4">Na casa</div>
-          <p class="doing">Casa de campo na beira da Represa do Capivari, com piscina e vista para a água. Nota 4,97 em 68 avaliações — a melhor média da lista.</p>
+          <p class="doing">Casa de campo na beira da Represa do Capivari, com piscina e vista para a água. Nota 4,97 em 68 avaliações.</p>
           <div class="h4">Na região</div>
-          <p class="doing">Quatro Barras e Serra do Mar: Represa do Capivari, Estrada da Graciosa, Morro do Anhangava e cachoeiras — tudo a poucos minutos.</p>
+          <p class="doing">Quatro Barras e Serra do Mar: Represa do Capivari, Estrada da Graciosa, Morro do Anhangava e cachoeiras.</p>
           <div class="pc">
-            <div class="pros"><h5 style="color:var(--green)">Prós</h5><ul><li>Só ~40 min de Curitiba (dá pra ir e voltar fácil)</li><li>Melhor nota da lista: 4,97 (68)</li><li>Represa + piscina · aceita pet</li></ul></div>
-            <div class="cons"><h5 style="color:var(--red)">Contras</h5><ul><li>Só 2,5 banheiros para 8</li><li>Sem mesa de sinuca</li><li>Preço médio-alto (R$ 1.375/pessoa)</li></ul></div>
+            <div class="pros"><h5 style="color:var(--green)">Prós</h5><ul><li>Só ~40 min de Curitiba · represa + piscina</li><li>Nota 4,97 (68)</li></ul></div>
+            <div class="cons"><h5 style="color:var(--red)">Contras</h5><ul><li>A mais cara da lista (R$ 1.808/pessoa)</li><li>Só 2,5 banheiros e 6 camas para 8 · sem sinuca</li></ul></div>
           </div>
-          <a class="btn" href="https://www.airbnb.com.br/rooms/553007611001631929?adults=8&check_in=2026-12-30&check_out=2027-01-02&pets=1" target="_blank" rel="noopener">Ver no Airbnb →</a>
-        </div>
-      </div>
-    </article>
-
-    <article class="card">
-      <div class="card-grid">
-        <div class="gallery">
-          <img class="main" id="mA3" src="https://a0.muscache.com/im/pictures/e4a7d54a-b08d-425d-b798-9bb2ad03d4dd.jpg?im_w=720" alt="NA_MORADA DO MARUMBI, Morretes">
-          <div class="thumbs">
-            <img src="https://a0.muscache.com/im/pictures/e4a7d54a-b08d-425d-b798-9bb2ad03d4dd.jpg?im_w=240" onclick="sw('mA3',this)">
-            <img src="https://a0.muscache.com/im/pictures/e87cf683-4765-4b7f-926b-8605c54d2552.jpg?im_w=240" onclick="sw('mA3',this)">
-            <img src="https://a0.muscache.com/im/pictures/574dc0bc-23fa-48ff-ac92-9a0778312651.jpg?im_w=240" onclick="sw('mA3',this)">
-            <img src="https://a0.muscache.com/im/pictures/5456a9aa-ffd1-4bf6-a41f-b2e97a4efb54.jpg?im_w=240" onclick="sw('mA3',this)">
-            <img src="https://a0.muscache.com/im/pictures/93108013/f78a83e5_original.jpg?im_w=240" onclick="sw('mA3',this)">
-          </div>
-        </div>
-        <div class="card-body">
-          <span class="rank alt">🔎 NOVA · ÓTIMO CUSTO · 157 AVALIAÇÕES</span>
-          <h3>NA_MORADA DO MARUMBI</h3>
-          <div class="loc">Morretes, PR <span class="scene">casa de campo + piscina</span></div>
-          <div class="priceline"><span class="big"><span class="price-total">R$ 5.800</span><span class="price-pp">R$ 725</span></span><span class="per"><span class="price-total">R$ 725/pessoa · com desconto (era R$ 6.400)</span><span class="price-pp">R$ 5.800 no total</span></span></div>
-          <div class="okbar">✅ Disponível para 30/12 → 02/01 · aceita pet · cancelamento grátis até 30/11. Está com desconto: de R$ 6.400 por R$ 5.800.</div>
-          <div class="kv">
-            <div><span class="k">Estrutura</span><span class="v">4 quartos · 6 camas · 3,5 banheiros</span></div>
-            <div><span class="k">Capacidade</span><span class="v">até 8 (exato pro grupo)</span></div>
-            <div><span class="k">Distância</span><span class="v">~1h de Curitiba</span></div>
-            <div><span class="k">Avaliações</span><span class="v">★ 4,76 · 157</span></div>
-            <div><span class="k">Pet</span><span class="v">permitido ✓</span></div>
-            <div><span class="k">Água</span><span class="v">piscina</span></div>
-          </div>
-          <div class="h4">Na casa</div>
-          <p class="doing">Casa de campo aos pés do Marumbi, com piscina, área verde ampla e 3,5 banheiros — bom equilíbrio de conforto e preço.</p>
-          <div class="h4">Na região</div>
-          <p class="doing">Morretes: barreado, trem da Serra do Mar, Estrada da Graciosa, cachoeiras e o Pico Marumbi.</p>
-          <div class="pc">
-            <div class="pros"><h5 style="color:var(--green)">Prós</h5><ul><li>Barata (R$ 725/pessoa) e ainda com desconto</li><li>157 avaliações — bem rodada</li><li>3,5 banheiros para 8 · piscina · pet</li></ul></div>
-            <div class="cons"><h5 style="color:var(--red)">Contras</h5><ul><li>Nota 4,76 — a mais baixa da lista</li><li>Capacidade máxima é exatamente 8</li><li>Sem mesa de sinuca</li></ul></div>
-          </div>
-          <a class="btn" href="https://www.airbnb.com.br/rooms/7123872?adults=8&check_in=2026-12-30&check_out=2027-01-02&pets=1" target="_blank" rel="noopener">Ver no Airbnb →</a>
-        </div>
-      </div>
-    </article>
-
-    <article class="card">
-      <div class="card-grid">
-        <div class="gallery">
-          <img class="main" id="mA4" src="https://a0.muscache.com/im/pictures/48b04068-191b-4252-b717-a0255a1e337e.jpg?im_w=720" alt="Beira-mar de Morretes">
-          <div class="thumbs">
-            <img src="https://a0.muscache.com/im/pictures/48b04068-191b-4252-b717-a0255a1e337e.jpg?im_w=240" onclick="sw('mA4',this)">
-            <img src="https://a0.muscache.com/im/pictures/c408a204-fd87-4433-891d-e3442a19682d.jpg?im_w=240" onclick="sw('mA4',this)">
-            <img src="https://a0.muscache.com/im/pictures/d8e31651-4017-41da-98da-85125b9ea446.jpg?im_w=240" onclick="sw('mA4',this)">
-            <img src="https://a0.muscache.com/im/pictures/15e32274-ab5f-410f-aca8-d50128169067.jpg?im_w=240" onclick="sw('mA4',this)">
-            <img src="https://a0.muscache.com/im/pictures/088b29ae-6483-4dcc-a4dd-8aeae78896f0.jpg?im_w=240" onclick="sw('mA4',this)">
-          </div>
-        </div>
-        <div class="card-body">
-          <span class="rank">⭐ MELHOR NOTA · MAIS CONFORTO</span>
-          <h3>Beira-mar de Morretes</h3>
-          <div class="loc">Morretes, PR <span class="scene">serra / rio (não é praia)</span></div>
-          <div class="priceline"><span class="big"><span class="price-total">R$ 17.097</span><span class="price-pp">R$ 2.137</span></span><span class="per"><span class="price-total">R$ 2.137/pessoa · a mais cara</span><span class="price-pp">R$ 17.097 no total</span></span></div>
-          <div class="okbar">✅ Disponível para 30/12 → 02/01 · aceita pet. Atenção: o preço subiu desde a última consulta (era R$ 16.922).</div>
-          <div class="kv">
-            <div><span class="k">Estrutura</span><span class="v">5 quartos · 7 camas · 5,5 banheiros</span></div>
-            <div><span class="k">Capacidade</span><span class="v">até 11</span></div>
-            <div><span class="k">Distância</span><span class="v">~1h de Curitiba</span></div>
-            <div><span class="k">Avaliações</span><span class="v">★ 5,0 · 23 · Superhost</span></div>
-            <div><span class="k">Pet</span><span class="v">permitido ✓</span></div>
-            <div><span class="k">Extra</span><span class="v">piscina aquecida · opção de cozinheira</span></div>
-          </div>
-          <div class="h4">Na casa</div>
-          <p class="doing">Piscina aquecida, casa muito equipada, rio e mata em volta, self check-in e opção de contratar cozinheira (a Lucy, elogiada nas avaliações). 5,5 banheiros — o maior conforto da lista.</p>
-          <div class="h4">Na região</div>
-          <p class="doing">Trem da Serra do Mar, barreado, Estrada da Graciosa, Ekôa Park e cachoeiras.</p>
-          <div class="pc">
-            <div class="pros"><h5 style="color:var(--green)">Prós</h5><ul><li>Nota 5,0 (Superhost) — a melhor da lista</li><li>Piscina aquecida + 5,5 banheiros</li><li>~1h de Curitiba · aposta mais segura</li></ul></div>
-            <div class="cons"><h5 style="color:var(--red)">Contras</h5><ul><li>De longe a mais cara (R$ 2.137/pessoa)</li><li>Preço subiu desde julho</li><li>Só 7 camas · sem sinuca</li></ul></div>
-          </div>
-          <a class="btn" href="https://www.airbnb.com.br/rooms/40649581?adults=8&check_in=2026-12-30&check_out=2027-01-02&pets=1" target="_blank" rel="noopener">Ver no Airbnb →</a>
+          <a class="btn" href="https://www.airbnb.com.br/rooms/553007611001631929?adults=8&check_in=2026-12-30&check_out=2027-01-03&pets=1" target="_blank" rel="noopener">Ver no Airbnb →</a>
         </div>
       </div>
     </article>
@@ -525,7 +617,7 @@
 
   <!-- ==================== GRUPO B ==================== -->
   <div class="group">🌊 Lago de Rio dos Cedros <span class="cnt">1 casa · ~3h–3h30 (a ~30 min de Pomerode)</span></div>
-  <p class="group-sub">A opção mais longe, mas a única com <b>mesa de sinuca</b> e lago para esportes aquáticos. Região dos Lagos: represas do Rio Bonito e do Pinhal liberam lancha, jet ski, caiaque e stand up.</p>
+  <p class="group-sub">A opção mais longe, com lago próprio para esportes aquáticos. Região dos Lagos: represas do Rio Bonito e do Pinhal liberam lancha, jet ski, caiaque e stand up.</p>
   <div class="cards">
 
     <article class="card">
@@ -541,11 +633,11 @@
           </div>
         </div>
         <div class="card-body">
-          <span class="rank">🎱 A ÚNICA COM SINUCA · LAGO</span>
+          <span class="rank">🎱 SINUCA · LAGO E ESPORTES</span>
           <h3>Casa do Lago</h3>
           <div class="loc">Rio dos Cedros, SC <span class="scene">lago / hotel-fazenda</span> <span class="scene sinuca">🎱 sinuca</span></div>
-          <div class="priceline"><span class="big"><span class="price-total">R$ 9.598</span><span class="price-pp">R$ 1.200</span></span><span class="per"><span class="price-total">R$ 1.200/pessoa · baixou (era R$ 10.300)</span><span class="price-pp">R$ 9.598 no total</span></span></div>
-          <div class="okbar">✅ Disponível para 30/12 → 02/01 · aceita pet. Com o grupo menor o preço caiu de R$ 10.300 para R$ 9.598.</div>
+          <div class="priceline"><span class="big"><span class="price-total">R$ 12.739</span><span class="price-pp">R$ 1.592</span></span><span class="per"><span class="price-total">R$ 1.592/pessoa</span><span class="price-pp">R$ 12.739 no total</span></span></div>
+          <div class="okbar">✅ Disponível para 30/12 → 03/01 (4 noites) · aceita pet. Com 4 noites subiu bastante (era R$ 9.598 em 3 noites).</div>
           <div class="kv">
             <div><span class="k">Estrutura</span><span class="v">5 quartos · 10 camas · 2,5 banheiros</span></div>
             <div><span class="k">Capacidade</span><span class="v">até 14 (sobra espaço)</span></div>
@@ -559,10 +651,10 @@
           <div class="h4">Na região</div>
           <p class="doing">Represas do Rio Bonito e Pinhal (lancha, jet ski, caiaque, stand up), +100 cachoeiras, passeios de barco e Pomerode/Blumenau ao lado.</p>
           <div class="pc">
-            <div class="pros"><h5 style="color:var(--green)">Prós</h5><ul><li>A única com mesa de sinuca 🎱</li><li>Lago + esportes aquáticos + piscina</li><li>Muita diversão sem sair de casa · 10 camas</li></ul></div>
-            <div class="cons"><h5 style="color:var(--red)">Contras</h5><ul><li>Bem mais longe (~3h30)</li><li>Wi-Fi fraco · só 2,5 banheiros</li><li>Poucas avaliações (8)</li></ul></div>
+            <div class="pros"><h5 style="color:var(--green)">Prós</h5><ul><li>Lago próprio + esportes aquáticos</li><li>Sinuca, pebolim e campo — festa em casa</li><li>10 camas · muita diversão sem sair</li></ul></div>
+            <div class="cons"><h5 style="color:var(--red)">Contras</h5><ul><li>Bem mais longe (~3h30)</li><li>Wi-Fi fraco · só 2,5 banheiros · 8 avaliações</li><li>Foi a que mais encareceu com a 4ª noite</li></ul></div>
           </div>
-          <a class="btn" href="https://www.airbnb.com.br/rooms/773753829171784102?adults=8&check_in=2026-12-30&check_out=2027-01-02&pets=1" target="_blank" rel="noopener">Ver no Airbnb →</a>
+          <a class="btn" href="https://www.airbnb.com.br/rooms/773753829171784102?adults=8&check_in=2026-12-30&check_out=2027-01-03&pets=1" target="_blank" rel="noopener">Ver no Airbnb →</a>
         </div>
       </div>
     </article>
@@ -572,37 +664,33 @@
   <h2 class="section">Ajuda a decidir</h2>
   <p class="section-sub">Um atalho pra afunilar a conversa no grupo.</p>
   <div class="guide">
-    <div class="g"><div class="q">💸 Gastar menos</div><div class="a"><b>Toca da Família Coelho</b> (R$ 333/pessoa) e <b>Ecosítio</b> (R$ 337) estão empatadas na ponta — as duas com nota altíssima. Depois vêm <b>WolfsHaus</b> (R$ 598) e <b>Marumbi</b> (R$ 725).</div></div>
-    <div class="g"><div class="q">🚗 Viajar pouco</div><div class="a"><b>Mil Estações</b> e <b>Represa do Capivari</b> (~40 min), <b>WolfsHaus</b> (~45 min), depois <b>Morretes</b>, <b>Marumbi</b> e <b>Toca</b> (~1h). A <b>Casa do Lago</b> é a única longe (~3h30).</div></div>
-    <div class="g"><div class="q">🎱 Mesa de sinuca</div><div class="a">Agora são <b>três</b>: <b>WolfsHaus</b> (~45 min), <b>Mil Estações</b> (~40 min, com ping pong e carteado) e <b>Casa do Lago</b> (~3h30). Dá pra ter sinuca sem encarar a estrada longa.</div></div>
-    <div class="g"><div class="q">🏞️ Água e esportes</div><div class="a">Todas as 8 têm piscina (a de Morretes é aquecida). Água aberta só em duas: represa no <b>Capivari</b> e lago na <b>Casa do Lago</b> (lancha, jet ski, caiaque).</div></div>
-    <div class="g"><div class="q">🛏️ Conforto</div><div class="a"><b>Beira-mar de Morretes</b>: 5,5 banheiros e piscina aquecida — mas é a mais cara. <b>Marumbi</b> (3,5 banh.) e <b>Mil Estações</b> (8 camas, 3 banh.) equilibram melhor preço e espaço.</div></div>
-    <div class="g"><div class="q">👍 Aposta mais segura</div><div class="a">Por volume: <b>Ecosítio</b> (4,93 · 169) e <b>Marumbi</b> (4,76 · 157). Por média: <b>WolfsHaus</b> (5,0 · 33) e <b>Capivari</b> (4,97 · 68).</div></div>
-    <div class="g"><div class="q">⚖️ O melhor "meio-termo"</div><div class="a"><b>WolfsHaus</b>: 5,0 com 33 avaliações, sinuca, piscina, ~45 min e R$ 598/pessoa — junta quase tudo que o grupo pediu num preço baixo.</div></div>
-    <div class="g"><div class="q">🎉 Virada tranquila</div><div class="a">Nenhuma é praia, então ninguém pega o engarrafamento da BR-277/BR-101 no fim de ano. A <b>Casa do Lago</b> é a mais "festa em casa" (sinuca, pebolim, campo).</div></div>
-    <div class="g"><div class="q">🐾 Pet</div><div class="a">Todas as 5 aceitam pet — já filtrado e confirmado no anúncio.</div></div>
+    <div class="g"><div class="q">🏆 Se for pra escolher uma</div><div class="a"><b>Casa à Beira do Rio</b> (Morretes): sinuca, piscina, rio, <b>11 camas e 4 banheiros</b> por R$ 925/pessoa, nota 4,94 em 78 avaliações e ~1h de Curitiba. Nenhuma outra junta tudo isso por esse preço.</div></div>
+    <div class="g"><div class="q">💸 Gastar menos</div><div class="a"><b>Toca da Família Coelho</b> (R$ 427/pessoa) e <b>Ecosítio</b> (R$ 444) — as duas com nota altíssima. Depois <b>WolfsHaus</b> (R$ 788), que já traz sinuca.</div></div>
+    <div class="g"><div class="q">🎱 Mesa de sinuca</div><div class="a">Agora são <b>cinco</b>: <b>WolfsHaus</b> (R$ 788), <b>Casa à Beira do Rio</b> (R$ 925), <b>Mil Estações</b> (R$ 1.043, com ping pong), <b>Recanto Esmeralda</b> (R$ 1.143) e <b>Casa do Lago</b> (R$ 1.592).</div></div>
+    <div class="g"><div class="q">🚗 Viajar pouco</div><div class="a"><b>Mil Estações</b> e <b>Capivari</b> (~40 min), <b>WolfsHaus</b> e <b>Recanto Esmeralda</b> (~45 min), <b>Cabana Lago</b> (~50 min). A <b>Casa do Lago</b> é a única longe (~3h30).</div></div>
+    <div class="g"><div class="q">🛏️ Não disputar banheiro</div><div class="a">Com <b>4 banheiros</b>: <b>Casa à Beira do Rio</b> e <b>Recanto Esmeralda</b>. Evite <b>WolfsHaus</b>, <b>Capivari</b> e <b>Casa do Lago</b> se isso incomoda (2,5 cada).</div></div>
+    <div class="g"><div class="q">⭐ Aposta mais segura</div><div class="a"><b>Cabana Lago</b> (4,99 · 102) e <b>Ecosítio</b> (4,93 · 169) são as mais provadas. <b>Casa à Beira do Rio</b> (4,94 · 78) fica logo atrás com estrutura muito melhor.</div></div>
+    <div class="g"><div class="q">🏞️ Água aberta</div><div class="a">Represa no <b>Capivari</b>, lago na <b>Cabana Lago</b> e na <b>Casa do Lago</b> (essa com lancha, jet ski e caiaque). As demais têm piscina.</div></div>
+    <div class="g"><div class="q">🐾 Pet</div><div class="a">Todas as 10 aceitam pet — filtrado e conferido anúncio por anúncio.</div></div>
   </div>
 
   <div class="out">
-    <b>Saíram da lista nesta rodada:</b>
-    <b>Todas as casas de praia</b> (São Francisco do Sul, Penha, Navegantes, Barra do Sul e Matinhos/Caiobá) — removidas por decisão do grupo, pra evitar o trânsito intenso de fim de ano no litoral.
-    <b>Morada Boa Vista 01</b> (represa) — foi reservada: o Airbnb agora diz "essas datas não estão disponíveis".
-    <b>Casa com 6 Dormitórios</b> (represa) — o anúncio informa que <b>não permite animais de estimação</b>.
-    <b>Reprovadas por estadia mínima</b> (o Réveillon costuma exigir 4 a 6 noites, e a nossa é de 3): <b>Recanto do Sossego</b> (SJP, 4,93 · 135, com bilhar — mín. 5 dias), <b>Recanto Esmeralda</b> (Campina G. do Sul, 4,97 · 29, com sinuca — mín. 4 dias), <b>Chácara Rio do Ouro</b> (Morretes, 5,0 · 8 — mín. 4 dias), <b>Chácara do Sinésio</b> (Morretes, 5,0 · 25 — mín. 6 dias) e <b>Bela Casa com Piscina na Serra</b> (Quatro Barras, 4,89 · 27 — mín. 6 dias).
-    <b>Casa à Beira do Rio em Morretes</b> (4,94 · 78) — já foi reservada para as nossas datas.
-    <b>Se o grupo topar esticar para 4 noites</b> (30/12 → 03/01), várias dessas voltam ao jogo — é só pedir que eu revalido.
+    <b>O que mudou ao passar de 3 para 4 noites:</b>
+    <b>Entraram 3 casas</b> que antes eram impossíveis: <b>Casa à Beira do Rio</b> (aparecia indisponível), <b>Recanto Esmeralda</b> (exigia mín. 4 dias) e <b>Cabana Lareira Lago</b> (só apareceu na busca de 4 noites) — duas delas com sinuca e 4 banheiros.
+    <b>Saiu a Beira-mar de Morretes:</b> com 4 noites vai a <b>R$ 22.932</b> e estoura o teto de R$ 20 mil (em 3 noites era R$ 17.097).
+    <b>Continuam fora</b> mesmo com 4 noites, por exigirem 5 ou 6 diárias: <b>Recanto do Sossego</b> (SJP, 4,93 · 135, com bilhar), <b>Chácara do Sinésio</b> (Morretes, 5,0 · 25) e <b>Bela Casa com Piscina na Serra</b> (Quatro Barras, 4,89 · 27).
+    <b>Casas de praia</b> seguem fora por decisão do grupo (trânsito de fim de ano no litoral).
   </div>
 
   <div class="note">
-    <b>Antes de fechar:</b> preços de 30/12→02/01 para 8 hóspedes + 1 pet, revalidados em 19/07/2026 — mudam conforme a procura, então confirme na hora de reservar.
-    <b>Disponibilidade:</b> as 5 casas acima foram abertas uma a uma no Airbnb com as datas e o grupo certos, e todas mostraram o botão "Reservar" com preço fechado.
-    <b>Cancelamento:</b> Marumbi tem cancelamento grátis até 30/11; WolfsHaus até 25/12; Ecosítio e Capivari até 29/12 — vale travar cedo e cancelar depois se mudar de ideia.
-    <b>Sinuca:</b> resolvido — <b>WolfsHaus</b> (~45 min) e <b>Mil Estações</b> (~40 min) têm mesa, além da Casa do Lago.
+    <b>Antes de fechar:</b> preços de 30/12 → 03/01 (4 noites) para 8 hóspedes + 1 pet, conferidos anúncio por anúncio — mudam conforme a procura, então confirme na hora de reservar.
+    <b>Quanto custou a noite extra:</b> entre +R$ 755 (Toca) e +R$ 3.466 (Capivari); na média, cerca de 30% a mais que as 3 noites.
+    <b>Cancelamento:</b> Marumbi até 30/11; WolfsHaus, Casa à Beira do Rio, Recanto Esmeralda e Cabana Lago até 25/12; Ecosítio e Capivari até 29/12 — dá pra travar cedo e cancelar depois se o grupo mudar de ideia.
     <b>Corram:</b> Ecosítio e Mil Estações aparecem como "costuma estar sempre reservado", e várias casas boas da região já caíram por estarem reservadas.
   </div>
 
   <footer>
-    <p>Comparativo montado a partir dos anúncios do Airbnb, filtrado com os nossos critérios atuais: 8 pessoas + 1 pet; 4+ quartos; até R$ 20 mil no total; <b>sem litoral</b> (serra, campo e represa), pra fugir do trânsito de fim de ano; mesa de sinuca como diferencial. Preços por pessoa = total ÷ 8. Dados e preços sujeitos a alteração. Fotos © anfitriões/Airbnb.</p>
+    <p>Comparativo montado a partir dos anúncios do Airbnb, filtrado com os nossos critérios atuais: 8 pessoas + 1 pet; 4+ quartos; até R$ 20 mil no total; <b>sem litoral</b> (serra, campo e represa), pra fugir do trânsito de fim de ano; mesa de sinuca como diferencial. Estadia de 4 noites (30/12 → 03/01). Preços por pessoa = total ÷ 8. Dados e preços sujeitos a alteração. Fotos © anfitriões/Airbnb.</p>
   </footer>
 
 </div>
